@@ -17,7 +17,7 @@ public class FoodObjects extends GameObject {
     public Image getSprite() {
         BufferedImage image = new BufferedImage(size.getWidth(),size.getHeight(), BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = image.createGraphics();
-        graphics.setColor(getFarve().farveFarve);
+        graphics.setColor(getFarve().randomColor);
         //graphics.setColor();
         //graphics.setColor();
         graphics.fillRect(0,0, size.getWidth(), size.getHeight());
@@ -25,7 +25,7 @@ public class FoodObjects extends GameObject {
         //return null;
         return image;
     }
-    
+
 
 
 
