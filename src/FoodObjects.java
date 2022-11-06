@@ -17,9 +17,9 @@ public class FoodObjects extends GameObject {
     public Image getSprite() {
         BufferedImage image = new BufferedImage(size.getWidth(),size.getHeight(), BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = image.createGraphics();
-        graphics.setColor(Color.BLUE);
+        graphics.setColor(getFarve().farveFarve);
         //graphics.setColor();
-        //graphics.setColor(randomColor());
+        //graphics.setColor();
         graphics.fillRect(0,0, size.getWidth(), size.getHeight());
         graphics.dispose();
         //return null;
@@ -48,11 +48,11 @@ public class FoodObjects extends GameObject {
         }
     }*/
 
-    public Color randomColor()
+   /* public Color randomColor()
     {
-       // float red   = (float) Math.random();
-        //float green = (float) Math.random();
-        //float blue  = (float) Math.random();
+       float red   = (float) Math.random();
+       float green = (float) Math.random();
+        float blue  = (float) Math.random();
 
         //return new Color( red, green, blue );
 
@@ -61,7 +61,7 @@ public class FoodObjects extends GameObject {
         Color color = new Color(rand.nextInt(0xFFFFFF));
 
  return color;
-    }
+    }*/
 
 
 

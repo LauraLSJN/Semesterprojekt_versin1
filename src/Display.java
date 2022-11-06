@@ -27,7 +27,7 @@ public class Display extends JFrame {
         BufferStrategy bufferStartegy = canvas.getBufferStrategy();
         Graphics graphics = bufferStartegy.getDrawGraphics();
 
-        graphics.setColor(Color.RED);
+        graphics.setColor(Color.BLUE);
         graphics.fillRect(0,0,canvas.getWidth(),canvas.getHeight());
 
         game.getGameObject().forEach(gameObject -> graphics.drawImage(
