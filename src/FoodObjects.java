@@ -7,9 +7,10 @@ public class FoodObjects extends GameObject {
 
     @Override
     public void update() {
-        FoodObjectsPos = new Position(FoodObjectsPos.getX(), FoodObjectsPos.getY()+1);
 
-        //graphics.setColor(randomColor());
+        position = new Position(position.getX(), position.getY()+1);
+
+
 
     }
 

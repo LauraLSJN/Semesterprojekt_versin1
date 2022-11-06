@@ -7,9 +7,8 @@ public class PlayerObject extends GameObject {
 
     @Override
     public void update() {
-        PlayerObjectPos = new Position(PlayerObjectPos.getX(), PlayerObjectPos.getY());
-
-        //graphics.setColor(randomColor());
+        //position = new Position(position.getX(), position.getY());
+        position = new Position(350, 480);
 
     }
 
