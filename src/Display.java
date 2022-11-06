@@ -12,7 +12,7 @@ public class Display extends JFrame {
         setResizable(false);
 
         canvas = new Canvas();
-        canvas.setPreferredSize(new Dimension(width,height));
+        canvas.setPreferredSize(new Dimension(width, height));
         canvas.setFocusable(false);
         add(canvas);
         pack();
@@ -28,7 +28,7 @@ public class Display extends JFrame {
         Graphics graphics = bufferStartegy.getDrawGraphics();
 
         //graphics.setColor(Color.BLUE);
-        graphics.fillRect(0,0,canvas.getWidth(),canvas.getHeight());
+        graphics.fillRect(0, 0, canvas.getWidth(),canvas.getHeight());
 
         game.getGameObject().forEach(gameObject -> graphics.drawImage(
                 gameObject.getSprite(),
