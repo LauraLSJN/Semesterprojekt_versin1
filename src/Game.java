@@ -16,7 +16,7 @@ public class Game {
         gameObject.add(new FoodObjects());
         gameObject.add(new FoodObjects());
         gameObject.add(new PlayerObject());
-        System.out.println("1");
+        System.out.println("9");
         System.out.println("2");
 
     }
