@@ -9,12 +9,13 @@ public class Game {
 
 
     public Game(int width, int height){
-        display = new Display(width,height);
+        display = new Display(700,500);//aendret fra w h Skærmstørrelse 700x500 x: 700, y:500
         gameObject = new ArrayList<>();
         //graphics.setColor(randomColor());
         gameObject.add(new FoodObjects());
         gameObject.add(new FoodObjects());
         gameObject.add(new FoodObjects());
+        gameObject.add(new PlayerObject());
 
     }
 
