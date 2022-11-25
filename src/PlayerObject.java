@@ -23,7 +23,7 @@ public class PlayerObject extends GameObject {
         if(controller.isRequestiongRight()){
             deltaY++;
         }
-        pos = new Pos(pos.getX()+deltaX,pos.getY());
+        pos = new Pos(pos.getX()+deltaX,pos.getY()+deltaY);
         System.out.println(pos.getX() + " " + pos.getY());
 
         //position = new Position(position.getX(), position.getY());
