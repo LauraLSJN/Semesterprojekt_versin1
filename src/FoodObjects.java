@@ -4,13 +4,9 @@ import java.util.Random;
 
 public class FoodObjects extends GameObject {
 
-
     @Override
     public void update() {
-
         position = new Position(position.getX(), position.getY()+1);
-
-
 
     }
 

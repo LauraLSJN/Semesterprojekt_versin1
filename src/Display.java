@@ -41,6 +41,12 @@ public class Display extends JFrame {
 
         ));
 
+        game.getGameObject().forEach(gameObject ->graphics.drawImage(
+                gameObject.getSprite(),
+                gameObject.getPos().getX(),
+                gameObject.getPos().getY(),null
+        ));
+
         graphics.dispose();
         bufferStartegy.show();
 
