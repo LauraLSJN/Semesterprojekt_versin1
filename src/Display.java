@@ -41,6 +41,7 @@ public class Display extends JFrame {
 
         ));
 
+        //Dette sætter en rød firkant (player) ind som flytter sig til venstre
         game.getGameObject().forEach(gameObject ->graphics.drawImage(
                 gameObject.getSprite(),
                 gameObject.getPos().getX(),
