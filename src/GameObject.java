@@ -3,12 +3,14 @@ import java.util.Random;
 
 public abstract class GameObject {
     protected Position position;
+    protected Pos pos;
     //protected Position position2;
     //protected Pos PlayerObjectPos;
     protected Size size;
     protected Farve randomColor;
 
     public GameObject(){
+        pos = new Pos(350, 480);
 
         Random random = new Random();
         //position = new Position(200,200);
@@ -28,6 +30,7 @@ public abstract class GameObject {
     public Position getPosition() {
         return position;
     }
+    public Pos getPos(){return pos;}
 
 
     public Size getSize() {

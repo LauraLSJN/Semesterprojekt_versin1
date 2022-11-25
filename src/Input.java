@@ -20,6 +20,7 @@ public class Input implements KeyListener {
     //Vi har trykket noget -> det har en keycode (keyEvent e) -> get the slot of our boolean array and say that this slot now holds true
     @Override
     public void keyPressed(KeyEvent e) {
+
         pressed[e.getKeyCode()] = true;
     }
 

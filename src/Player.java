@@ -5,6 +5,7 @@ public class Player implements Controller{
     private Input input;
 
     public Player(Input input){
+
         this.input=input;
     }
 
