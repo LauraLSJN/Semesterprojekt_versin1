@@ -34,9 +34,10 @@ public class Display extends JFrame {
         graphics.fillRect(0, 0, canvas.getWidth(),canvas.getHeight());
 
         game.getGameObject().forEach(gameObject -> graphics.drawImage(
-                gameObject.getSprite(), gameObject.getPos().getX(),gameObject.getPos().getY(),null
+                gameObject.getSprite(),
+                gameObject.getPos().getX(),
+                gameObject.getPos().getY(),null
         ));
-
 
 
         game.getGameObject().forEach(gameObject -> graphics.drawImage(

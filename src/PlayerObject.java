@@ -4,12 +4,18 @@ import java.util.Random;
 
 public class PlayerObject extends GameObject {
     private Controller controller;
+    private int xPlayer;
+    private int yPlayer;
+    //FoodObjects foodObjects;
 
-    public PlayerObject(Controller controller){
+    public PlayerObject(){
+        super();
+    }
+
+    public PlayerObject(Controller controller) {
         super();
         this.controller = controller;
     }
-
 
 
     @Override
@@ -24,7 +30,34 @@ public class PlayerObject extends GameObject {
             deltaX++;
         }
         position = new Position(pos.getX(), pos.getY());
-        pos = new Pos(pos.getX()+deltaX,pos.getY()+deltaY);
+        pos = new Pos(pos.getX() + deltaX, pos.getY() + deltaY);
+        //System.out.println("PlayerObject - PositionX: " + position.getX() + " Y: "+ position.getY());
+        //System.out.println("PlayerObject - PosX: " + pos.getX() +" Y: "+ pos.getY());
+        xPlayer = pos.getX();
+        yPlayer = pos.getY();
+        //System.out.println("xPlayer = " + xPlayer + " yPlayer: " + yPlayer);
+
+        //Til at se i konsol, om xPlayer rammer siderne
+        if (xPlayer <= 0) {
+            System.out.println("Du er for langt ud 0");
+        } else if (xPlayer >= 700) {
+            System.out.println("Du er for langt ude 700");
+        }
+
+        FoodObjects foodObjects = new FoodObjects();
+        int xFood = foodObjects.test();
+        System.out.println("xFood: " + xFood );
+
+        if (xFood == xPlayer){
+            System.out.println("hej");
+        }
+
+        /*if(xPlayer ==){
+            System.out.println("Du har ramt");
+            System.out.println("xPlayer: " + xPlayer);
+            System.out.println("Yfood: " + foodObjects.getyFood());
+        }*/
+
         //System.out.println(pos.getX() + " " + pos.getY());
 
         //position = new Position(position.getX(), position.getY());
@@ -33,6 +66,18 @@ public class PlayerObject extends GameObject {
         //pos = new Pos(position.getX()+deltaX, position.getY()+deltaY);
 
     }
+
+    public int getxPlayer() {
+        this.xPlayer = pos.getX();
+        return xPlayer;
+    }
+
+    public int getyPlayer() {
+        this.yPlayer = pos.getY();
+        return yPlayer;
+    }
+
+
 
     @Override
     public Image getSprite() {

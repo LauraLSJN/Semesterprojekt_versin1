@@ -18,16 +18,29 @@ public class Game {
         gameObject = new ArrayList<>();
         //graphics.setColor(randomColor());
         //gameObject.add(new FoodObjects());
-        gameObject.add(new FoodObjects());
+        //gameObject.add(new FoodObjects());
         //position = new Position(200,200);
 
         gameObject.add(new FoodObjects());
         gameObject.add(new PlayerObject(new Player(input)));
         //gameObject.add(new PlayerObject(new Player(input)));
         //gameObject.add(new PlayerObject(new Player(input)));
+        //detectionPlayer();
 
-        System.out.println(gameObject.size());
+        System.out.println("GameObject Størrelse: " + gameObject.size());
 
+    }
+
+
+
+    public void detectionPlayer(){
+        FoodObjects foodObjects = new FoodObjects();
+        PlayerObject playerObject = new PlayerObject();
+
+
+            //System.out.println("Den er ramt");
+            System.out.println("xPlayer: " + playerObject.getxPlayer());
+            System.out.println("yFood: " + foodObjects.getyFood() );
 
     }
 
