@@ -34,7 +34,7 @@ public class Game {
 
 
     public void detectionPlayer(){
-        while(display.isShowing()){
+        while(display.isActive()){
             FoodObjects foodObjects = new FoodObjects();
             System.out.println(foodObjects.getxFood());
             System.out.println(foodObjects.getyFood());
