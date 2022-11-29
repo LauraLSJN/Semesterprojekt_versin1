@@ -51,7 +51,7 @@ public class Display extends JFrame {
 
 
 
-        System.out.println(game.getGameObject().toString());
+        //System.out.println(game.getGameObject().toString());
 
 
 

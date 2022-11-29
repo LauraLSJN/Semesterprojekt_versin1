@@ -25,7 +25,7 @@ public class Game {
         gameObject.add(new PlayerObject(new Player(input)));
         //gameObject.add(new PlayerObject(new Player(input)));
         //gameObject.add(new PlayerObject(new Player(input)));
-        detectionPlayer();
+        //detectionPlayer();
         //System.out.println(gameObject);
         System.out.println("GameObject Størrelse: " + gameObject.size());
 
@@ -34,7 +34,7 @@ public class Game {
 
 
     public void detectionPlayer(){
-        while(display.isActive()){
+        while(getGameObject().size() <= 3){
             FoodObjects foodObjects = new FoodObjects();
             System.out.println(foodObjects.getxFood());
             System.out.println(foodObjects.getyFood());
