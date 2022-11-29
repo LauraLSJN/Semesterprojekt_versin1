@@ -28,8 +28,16 @@ public class Display extends JFrame {
         BufferStrategy bufferStartegy = canvas.getBufferStrategy();
         Graphics graphics = bufferStartegy.getDrawGraphics();
 
+
+
         //graphics.setColor(Color.BLUE);
         graphics.fillRect(0, 0, canvas.getWidth(),canvas.getHeight());
+
+        game.getGameObject().forEach(gameObject -> graphics.drawImage(
+                gameObject.getSprite(), gameObject.getPos().getX(),gameObject.getPos().getY(),null
+        ));
+
+
 
         game.getGameObject().forEach(gameObject -> graphics.drawImage(
                 gameObject.getSprite(),
@@ -42,14 +50,16 @@ public class Display extends JFrame {
         ));
 
         //Dette sætter en rød firkant (player) ind som flytter sig til venstre
-        game.getGameObject().forEach(gameObject ->graphics.drawImage(
+        /*game.getGameObject().forEach(gameObject ->graphics.drawImage(
                 gameObject.getSprite(),
                 gameObject.getPos().getX(),
                 gameObject.getPos().getY(),null
-        ));
+        ));*/
+
 
         graphics.dispose();
         bufferStartegy.show();
+
 
     }
 

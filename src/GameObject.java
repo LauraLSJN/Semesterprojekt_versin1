@@ -8,24 +8,23 @@ public abstract class GameObject {
     //protected Pos PlayerObjectPos;
     protected Size size;
     protected Farve randomColor;
+    Random random = new Random();
+
 
     public GameObject(){
-        pos = new Pos(350, 480);
-
-        Random random = new Random();
-        //position = new Position(200,200);
         position = new Position(random.nextInt(700), 0);
-        //FoodObjectsPos = new Position(0, 0);
+        pos = new Pos(350, 480);
+        //position = new Position(random.nextInt(700), 0);
+        //position = new Position(300,300);
 
-        //position = new Position(50,50);
         size = new Size(20,20);
         randomColor = new Farve();
-        //position2 = new Position(200,200);
 ;
     }
-
-    public abstract void update();
+    //public abstract Image getSpriteFood();
     public abstract Image getSprite();
+    public abstract void update();
+
 
     public Position getPosition() {
         return position;

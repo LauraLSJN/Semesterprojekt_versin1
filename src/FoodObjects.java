@@ -4,8 +4,10 @@ import java.util.Random;
 
 public class FoodObjects extends GameObject {
 
+
     @Override
     public void update() {
+        pos = new Pos(position.getX(), position.getY());
         position = new Position(position.getX(), position.getY()+1);
 
     }
@@ -15,7 +17,7 @@ public class FoodObjects extends GameObject {
         BufferedImage image = new BufferedImage(size.getWidth(),size.getHeight(), BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = image.createGraphics();
         graphics.setColor(getFarve().randomColor);
-        graphics.fillRect(0,0, size.getWidth(), size.getHeight());
+        graphics.fillRect(0, 0, size.getWidth(), size.getHeight());
         graphics.dispose();
         return image;
     }

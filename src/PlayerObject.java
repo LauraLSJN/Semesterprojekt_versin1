@@ -8,8 +8,8 @@ public class PlayerObject extends GameObject {
     public PlayerObject(Controller controller){
         super();
         this.controller = controller;
-
     }
+
 
 
     @Override
@@ -23,8 +23,9 @@ public class PlayerObject extends GameObject {
         if(controller.isRequestiongRight()){
             deltaX++;
         }
+        position = new Position(pos.getX(), pos.getY());
         pos = new Pos(pos.getX()+deltaX,pos.getY()+deltaY);
-        System.out.println(pos.getX() + " " + pos.getY());
+        //System.out.println(pos.getX() + " " + pos.getY());
 
         //position = new Position(position.getX(), position.getY());
         //position = new Position(350, 480);
@@ -42,6 +43,16 @@ public class PlayerObject extends GameObject {
         graphics.dispose();
         return image;
     }
+
+    /*@Override
+    public Image getSpritePlayer() {
+        BufferedImage image = new BufferedImage(size.getWidth(),size.getHeight(), BufferedImage.TYPE_INT_RGB);
+        Graphics2D graphics = image.createGraphics();
+        graphics.setColor(Color.RED);
+        graphics.fillRect(0,0, size.getWidth(), size.getHeight());
+        graphics.dispose();
+        return image;
+    }*/
 
 
 
