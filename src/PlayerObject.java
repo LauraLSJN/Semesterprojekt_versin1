@@ -22,12 +22,19 @@ public class PlayerObject extends GameObject {
         int deltaX = 0;
         int deltaY = 0;
 
-        if(controller.isRequestiongLeft()){
-            deltaX--;
+        if (xPlayer >= 0) { //skærmstørrelsen går fra 0-700, sat i Game
+            if (controller.isRequestiongLeft()) {
+                deltaX--;
+            }
         }
-        if(controller.isRequestiongRight()){
-            deltaX++;
+
+        if (xPlayer+20 <= 700) { //Skærmstørrelsens bredde, sat i Game, +20 ved xPlayer, pga firkantens x,y startspunkt
+            if (controller.isRequestiongRight()) {
+                deltaX++;
+            }
+
         }
+
         position = new Position(pos.getX(), pos.getY());
         pos = new Pos(pos.getX() + deltaX, pos.getY() + deltaY);
         //System.out.println("PlayerObject - PositionX: " + position.getX() + " Y: "+ position.getY());
@@ -42,6 +49,7 @@ public class PlayerObject extends GameObject {
         } else if (xPlayer >= 700) {
             System.out.println("Du er for langt ude 700");
         }
+
 
         /*FoodObjects foodObjects = new FoodObjects();
         System.out.println("xFood: " + xFood );
@@ -86,10 +94,10 @@ public class PlayerObject extends GameObject {
 
     @Override
     public Image getSprite() {
-        BufferedImage image = new BufferedImage(size.getWidth(),size.getHeight(), BufferedImage.TYPE_INT_RGB);
+        BufferedImage image = new BufferedImage(size.getWidth(), size.getHeight(), BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = image.createGraphics();
         graphics.setColor(Color.RED);
-        graphics.fillRect(0,0, size.getWidth(), size.getHeight());
+        graphics.fillRect(0, 0, size.getWidth(), size.getHeight());
         graphics.dispose();
         return image;
     }
@@ -103,10 +111,6 @@ public class PlayerObject extends GameObject {
         graphics.dispose();
         return image;
     }*/
-
-
-
-
 
 
 }

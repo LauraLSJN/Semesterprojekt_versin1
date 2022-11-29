@@ -10,7 +10,6 @@ public class Player implements Controller{
     }
 
 
-
     @Override
     public boolean isRequestiongLeft() {
         return input.isPressed(KeyEvent.VK_LEFT); // means the left arrow

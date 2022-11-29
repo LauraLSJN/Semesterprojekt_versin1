@@ -12,7 +12,7 @@ public class Game {
     protected Pos pos;
 
 
-    public Game(int width, int height){
+    public Game(){
         input = new Input();
         display = new Display(700,500, input);//aendret fra w h Skærmstørrelse 700x500 x: 700, y:500
         gameObject = new ArrayList<>();
@@ -25,8 +25,8 @@ public class Game {
         gameObject.add(new PlayerObject(new Player(input)));
         //gameObject.add(new PlayerObject(new Player(input)));
         //gameObject.add(new PlayerObject(new Player(input)));
-        //detectionPlayer();
-
+        detectionPlayer();
+        //System.out.println(gameObject);
         System.out.println("GameObject Størrelse: " + gameObject.size());
 
     }
@@ -34,19 +34,37 @@ public class Game {
 
 
     public void detectionPlayer(){
-        FoodObjects foodObjects = new FoodObjects();
-        PlayerObject playerObject = new PlayerObject();
+        while(display.isShowing()){
+            FoodObjects foodObjects = new FoodObjects();
+            System.out.println(foodObjects.getxFood());
+            System.out.println(foodObjects.getyFood());
+
+            PlayerObject playerObject = new PlayerObject();
+            //System.out.println(playerObject.getxPlayer());
+            //System.out.println(playerObject.getyPlayer());
+        }
+
+
+        // FoodObjects foodObjects = new FoodObjects();
+      //  PlayerObject playerObject = new PlayerObject();
 
 
             //System.out.println("Den er ramt");
-            System.out.println("xPlayer: " + playerObject.getxPlayer());
-            System.out.println("yFood: " + foodObjects.getyFood() );
+          //  System.out.println("xPlayer x: " + playerObject.getxPlayer());
+       // System.out.println("yPlayer y:" + playerObject.getyPlayer());
+
+
+      //  System.out.println("xFood x: " + foodObjects.getxFood());
+         //   System.out.println("yFood y: " + foodObjects.getyFood() );
+
+
 
     }
 
 
     public void update(){
         gameObject.forEach(gameObject -> gameObject.update());
+
 
     }
 

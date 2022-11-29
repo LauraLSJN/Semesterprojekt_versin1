@@ -16,14 +16,13 @@ public class FoodObjects extends GameObject {
         xFood = position.getX();
         yFood = position.getY();
         //System.out.println("xFood = " + xFood + " yFood: " + yFood);
+
+        if (yFood == 500){
+            System.out.println("yFood: ramt bunden -> " + yFood);
+            System.out.println("xFood: " + xFood);
+        }
     }
 
-    public int test(){
-        if (yFood==500){
-        return xFood;
-        }
-        return yFood;
-    }
 
     public int getxFood() {
         this.xFood = position.getX();
