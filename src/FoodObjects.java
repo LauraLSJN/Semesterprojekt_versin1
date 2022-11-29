@@ -36,6 +36,14 @@ public class FoodObjects extends GameObject {
     }
 
     @Override
+    public String toString() {
+        return "FoodObjects{" +
+                "xFood=" + xFood +
+                ", yFood=" + yFood +
+                '}';
+    }
+
+    @Override
     public Image getSprite() {
         BufferedImage image = new BufferedImage(size.getWidth(),size.getHeight(), BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = image.createGraphics();

@@ -9,6 +9,10 @@ public abstract class GameObject {
     protected Size size;
     protected Farve randomColor;
     Random random = new Random();
+    //protected int xFood;
+    //protected int yFood;
+    protected int xPlayer;
+    protected int yPlayer;
 
 
     public GameObject(){

@@ -17,7 +17,6 @@ public class PlayerObject extends GameObject {
         this.controller = controller;
     }
 
-
     @Override
     public void update() {
         int deltaX = 0;
@@ -44,14 +43,13 @@ public class PlayerObject extends GameObject {
             System.out.println("Du er for langt ude 700");
         }
 
-        FoodObjects foodObjects = new FoodObjects();
-        int xFood = foodObjects.test();
+        /*FoodObjects foodObjects = new FoodObjects();
         System.out.println("xFood: " + xFood );
 
         if (xFood == xPlayer){
             System.out.println("hej");
         }
-
+*/
         /*if(xPlayer ==){
             System.out.println("Du har ramt");
             System.out.println("xPlayer: " + xPlayer);
@@ -68,16 +66,23 @@ public class PlayerObject extends GameObject {
     }
 
     public int getxPlayer() {
-        this.xPlayer = pos.getX();
+        //this.xPlayer = pos.getX();
         return xPlayer;
     }
 
     public int getyPlayer() {
-        this.yPlayer = pos.getY();
+        //this.yPlayer = pos.getY();
         return yPlayer;
     }
 
 
+    @Override
+    public java.lang.String toString() {
+        return "PlayerObject{" +
+                "xPlayer=" + xPlayer +
+                ", yPlayer=" + yPlayer +
+                '}';
+    }
 
     @Override
     public Image getSprite() {

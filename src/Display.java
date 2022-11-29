@@ -5,6 +5,7 @@ import java.awt.image.BufferStrategy;
 public class Display extends JFrame {
 
     private Canvas canvas;
+    //private Collision collision;
 
     public Display(int width, int height, Input input){
         setTitle("MyFoodSolver");
@@ -28,8 +29,6 @@ public class Display extends JFrame {
         BufferStrategy bufferStartegy = canvas.getBufferStrategy();
         Graphics graphics = bufferStartegy.getDrawGraphics();
 
-
-
         //graphics.setColor(Color.BLUE);
         graphics.fillRect(0, 0, canvas.getWidth(),canvas.getHeight());
 
@@ -39,7 +38,7 @@ public class Display extends JFrame {
                 gameObject.getPos().getY(),null
         ));
 
-
+//Dette sætter en rød firkant (player) ind som flytter sig til venstre
         game.getGameObject().forEach(gameObject -> graphics.drawImage(
                 gameObject.getSprite(),
                 gameObject.getPosition().getX(),
@@ -49,6 +48,17 @@ public class Display extends JFrame {
                 null
 
         ));
+
+
+
+        System.out.println(game.getGameObject().toString());
+
+
+
+
+        //System.out.println(game.getGameObject().);
+
+
 
         //Dette sætter en rød firkant (player) ind som flytter sig til venstre
         /*game.getGameObject().forEach(gameObject ->graphics.drawImage(
