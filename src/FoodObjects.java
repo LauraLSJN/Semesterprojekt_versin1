@@ -3,8 +3,6 @@ import java.awt.image.BufferedImage;
 import java.util.Random;
 
 public class FoodObjects extends GameObject {
-    private int xFood;
-    private int yFood;
     //private Position position;
     Random random = new Random();
     //Position objekt -> Kigge på dette objekt og ændrer på position
@@ -36,23 +34,6 @@ public class FoodObjects extends GameObject {
     }
 
 
-    public int getxFood() {
-        this.xFood = position.getX();
-        return xFood;
-    }
-
-    public int getyFood() {
-       // this.yFood = position.getY();
-        return yFood;
-    }
-
-    @Override
-    public String toString() {
-        return "FoodObjects{" +
-                "xFood=" + xFood +
-                ", yFood=" + yFood +
-                '}';
-    }
 
     @Override
     public Image getSprite() {
@@ -63,6 +44,8 @@ public class FoodObjects extends GameObject {
         graphics.dispose();
         return image;
     }
+
+
 
 
 

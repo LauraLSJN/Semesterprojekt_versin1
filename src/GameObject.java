@@ -2,14 +2,17 @@ import java.awt.*;
 
 
 public abstract class GameObject {
-    protected Position position;
+    public Position position;
     protected Size size;
     protected Farve randomColor;
 
     public GameObject(){
         size = new Size(20,20);
         randomColor = new Farve();
+
+
     }
+
 
     public abstract Image getSprite();
     public abstract void update();
