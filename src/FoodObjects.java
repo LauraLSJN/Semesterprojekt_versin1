@@ -5,6 +5,8 @@ import java.util.Random;
 public class FoodObjects extends GameObject {
     //private Position position;
     Random random = new Random();
+
+
     //Position objekt -> Kigge på dette objekt og ændrer på position
 
     //Konstruktør -> Initialisere alle variabler -> Opret new psoition objekt
@@ -18,6 +20,9 @@ public class FoodObjects extends GameObject {
     public void update() {
         int oldPos = position.getY();
         position.setY(oldPos+1);
+
+
+        //System.out.println(position.getX());
 
         //pos = new Pos(position.getX(), position.getY());
         //position = new Position(position.getX(), position.getY()+1);

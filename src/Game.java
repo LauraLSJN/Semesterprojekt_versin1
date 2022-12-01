@@ -20,7 +20,8 @@ public class Game {
         input = new Input();
         display = new Display(700,500, input);//aendret fra w h Skærmstørrelse 700x500 x: 700, y:500
         gameObject = new ArrayList<>();
-        //graphics.setColor(randomColor());
+        //gameObject.add(foodObjects);
+        gameObject.add(new PlayerObject(new Player(input)));
         gameObject.add(new FoodObjects());
         gameObject.add(new FoodObjects());
         gameObject.add(new FoodObjects());
@@ -28,6 +29,10 @@ public class Game {
         gameObject.add(new FoodObjects());
 
         System.out.println("GameObject Størrelse: " + gameObject.size());
+        //detection();
+        //System.out.println("x " + position.getX());
+        System.out.println(getGameObject());
+
 
     }
 
@@ -151,7 +156,6 @@ public class Game {
 
     public void render(){
         display.render(this);
-
     }
 
     public List<GameObject> getGameObject() {

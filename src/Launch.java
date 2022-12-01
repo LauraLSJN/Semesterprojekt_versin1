@@ -5,5 +5,6 @@ public class Launch {
         //Display display = new Display(300,300);
         new Thread(new GameLoop(new Game())).start();
 
+
     }
 }

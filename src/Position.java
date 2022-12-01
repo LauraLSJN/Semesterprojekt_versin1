@@ -1,15 +1,11 @@
 import java.util.Random;
 
 public class Position {
-
-
     private int x;
     private int y;
     //maxX og minY
-    Random random = new Random();
 
     public Position(int x,int y){
-        //Random random = new Random();
         this.x = x;
         this.y = y;
     }
@@ -31,7 +27,6 @@ public class Position {
     }
 
     public void setY(int y) {
-
         this.y = y;
         //Tjek for om det nye y er indenfor max
     }

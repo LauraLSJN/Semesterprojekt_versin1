@@ -5,6 +5,7 @@ import java.util.Random;
 public class PlayerObject extends GameObject {
     private Controller controller;
 
+
     public PlayerObject(Controller controller) {
         super();
         this.controller = controller;
@@ -24,7 +25,6 @@ public class PlayerObject extends GameObject {
 
         int oldPosX = position.getX();
         position.setX(oldPosX+deltaX);
-
 
         //position = new Position(pos.getX(), pos.getY());
         //pos = new Pos(pos.getX() + deltaX, pos.getY() + deltaY);
