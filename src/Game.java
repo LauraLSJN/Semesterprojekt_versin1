@@ -17,7 +17,7 @@ public class Game {
         display = new Display(700,500, input);//aendret fra w h Skærmstørrelse 700x500 x: 700, y:500
         gameObject = new ArrayList<>();
         //graphics.setColor(randomColor());
-        //gameObject.add(new FoodObjects());
+        gameObject.add(new FoodObjects());
         //gameObject.add(new FoodObjects());
         //position = new Position(200,200);
 

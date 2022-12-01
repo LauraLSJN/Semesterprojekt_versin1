@@ -16,7 +16,7 @@ public abstract class GameObject {
 
 
     public GameObject(){
-        position = new Position(random.nextInt(700), 0);
+        position = new Position(100, 0);
         pos = new Pos(350, 480);
         //position = new Position(random.nextInt(700), 0);
         //position = new Position(300,300);

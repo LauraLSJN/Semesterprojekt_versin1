@@ -5,22 +5,34 @@ import java.util.Random;
 public class FoodObjects extends GameObject {
     private int xFood;
     private int yFood;
+    //private Position position;
+    Random random = new Random();
+    //Position objekt -> Kigge på dette objekt og ændrer på position
+
+    //Konstruktør -> Initialisere alle variabler -> Opret new psoition objekt
+
+    public FoodObjects(){
+        position = new Position(random.nextInt(700),0);
+    }
 
 
     @Override
     public void update() {
-        pos = new Pos(position.getX(), position.getY());
-        position = new Position(position.getX(), position.getY()+1);
+        int oldPos = position.getY();
+        position.setY(oldPos+1);
+
+        //pos = new Pos(position.getX(), position.getY());
+        //position = new Position(position.getX(), position.getY()+1);
         //System.out.println("FoodObject - PositionX: " + position.getX() + " Y: "+ position.getY());
         //System.out.println("FoodObject - PosX: " + pos.getX() +" Y: "+ pos.getY());
-        xFood = position.getX();
-        yFood = position.getY();
+        //xFood = position.getX();
+        //yFood = position.getY();
         //System.out.println("xFood = " + xFood + " yFood: " + yFood);
 
-        if (yFood == 500){
+        /*if (yFood == 500){
             System.out.println("yFood: ramt bunden -> " + yFood);
             System.out.println("xFood: " + xFood);
-        }
+        }*/
     }
 
 
