@@ -39,7 +39,7 @@ public class Game {
             System.out.println(foodObjects.getxFood());
             System.out.println(foodObjects.getyFood());
 
-            PlayerObject playerObject = new PlayerObject();
+            //PlayerObject playerObject = new PlayerObject();
             //System.out.println(playerObject.getxPlayer());
             //System.out.println(playerObject.getyPlayer());
         }

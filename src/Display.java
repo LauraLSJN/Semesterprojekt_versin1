@@ -32,11 +32,11 @@ public class Display extends JFrame {
         //graphics.setColor(Color.BLUE);
         graphics.fillRect(0, 0, canvas.getWidth(),canvas.getHeight());
 
-        game.getGameObject().forEach(gameObject -> graphics.drawImage(
+        /*game.getGameObject().forEach(gameObject -> graphics.drawImage(
                 gameObject.getSprite(),
                 gameObject.getPos().getX(),
                 gameObject.getPos().getY(),null
-        ));
+        ));*/
 
 //Dette sætter en rød firkant (player) ind som flytter sig til venstre
         game.getGameObject().forEach(gameObject -> graphics.drawImage(
