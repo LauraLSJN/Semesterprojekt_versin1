@@ -9,7 +9,7 @@ public class Game {
     private List<GameObject> gameObject;
     private Input input;
     protected Position position;
-    protected Pos pos;
+
 
 
     public Game(){
