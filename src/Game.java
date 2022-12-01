@@ -38,18 +38,7 @@ public class Game {
 
 
     public void detection( ) {
-        int playerx = 0;
-        int playery;
-        int foodx;
-        int foody;
-        //int dist = gameObject.get(0).getPosition().getX()
 
-        //Food y skal være på 480, ligesom at player altid står på 480
-        // Food x og player x skal være det samme
-
-        /*if(collision() == true){
-            System.out.println("Sandt");
-        }*/
             for (int x = 1; x < gameObject.size(); x++) {
                 if ((gameObject.get(x).getPosition().getX() >= gameObject.get(0).getPosition().getX()-15)
                 &&  (gameObject.get(x).getPosition().getX() <= gameObject.get(0).getPosition().getX()+35)
@@ -131,12 +120,7 @@ public class Game {
 
 
             //System.out.println("Den er ramt");
-            //  System.out.println("xPlayer x: " + playerObject.getxPlayer());
-            // System.out.println("yPlayer y:" + playerObject.getyPlayer());
 
-
-            //  System.out.println("xFood x: " + foodObjects.getxFood());
-            //   System.out.println("yFood y: " + foodObjects.getyFood() );
 
 
 
