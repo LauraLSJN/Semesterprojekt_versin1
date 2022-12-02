@@ -13,7 +13,7 @@ public class FoodObjects extends GameObject {
     //Konstruktør -> Sætter position
     public FoodObjects(){
         //Ny instans af Position klasse
-        position = new Position(random.nextInt(700),0);
+        position = new Position(random.nextInt(680),0); //680, så der ikke placeres uden for display
         price = new Price();
         price.setValuePrice(random.nextInt(100));
         textInImage = String.valueOf(getPrice().getValuePrice()); //Henter valuePrice
