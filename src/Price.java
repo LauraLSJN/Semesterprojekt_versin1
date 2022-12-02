@@ -13,10 +13,6 @@ public class Price {
         this.valuePrice = valuePrice;
     }
 
-    public static void valueOf(int valuePrice){
-
-    }
-
     @Override
     public String toString() {
         return "Price{" +

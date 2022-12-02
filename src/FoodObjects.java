@@ -40,28 +40,18 @@ public class FoodObjects extends GameObject {
         Graphics2D graphics = image.createGraphics();
         graphics.setColor(getFarve().randomColor);
         graphics.fillRect(0, 0, size.getWidth(), size.getHeight());
-        //graphics.drawString("TEST",100,100);
         setText(graphics);
-
-
-        //https://www.baeldung.com/java-add-text-to-image
-        /*Font font = new Font("Serif", Font.BOLD, 10);
-        String text = "TEST";
-        AttributedString attributedText = new AttributedString(text);
-        attributedText.addAttribute(TextAttribute.FONT, font);
-        attributedText.addAttribute(TextAttribute.FOREGROUND, Color.WHITE);
-        graphics.drawString(attributedText.getIterator(), 0, 20);*/
-
-        //graphics.drawString("TEST", (a+c)/2, (b+d)/2);
         graphics.dispose();
         return image;
     }
 
+    //Price i firkanten
+    //https://www.baeldung.com/java-add-text-to-image
     public void setText(Graphics2D graphics){
         attributedText = new AttributedString(textInImage);
-        attributedText.addAttribute(TextAttribute.FONT, font);
-        attributedText.addAttribute(TextAttribute.FOREGROUND, Color.WHITE);
-        graphics.drawString(attributedText.getIterator(), 2, (size.getHeight()/2)+5);
+        attributedText.addAttribute(TextAttribute.FONT, font); //Font
+        attributedText.addAttribute(TextAttribute.FOREGROUND, Color.WHITE); //Sættes til foreground + farve = hvid
+        graphics.drawString(attributedText.getIterator(), 2, (size.getHeight()/2)+5); //Placeres i billede -> X og y kordinat er i henhold til image
 
     }
 
