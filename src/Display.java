@@ -30,6 +30,7 @@ public class Display extends JFrame {
 
         graphics.fillRect(0, 0, canvas.getWidth(),canvas.getHeight());
 
+
         //Henter gameObjects (FoodObjcts & PlayerObjects) og tegner det
         //Anvender Lambda Expression
         game.getGameObject().forEach(gameObject -> graphics.drawImage(
@@ -39,6 +40,21 @@ public class Display extends JFrame {
                 null
 
         ));
+
+        game.getShoppingBaskets().forEach(shoppingBasket -> graphics.drawImage(
+                shoppingBasket.getSprite(),
+                shoppingBasket.position.getX(),
+                shoppingBasket.position.getY(), null
+        ));
+
+        /*game.getShoppingBasket().getSprite().getGraphics().drawImage(
+                game.getShoppingBasket().getSprite(),
+                game.getShoppingBasket().position.getX(),
+                game.getShoppingBasket().position.getY(),null
+        );*/
+
+
+
 
         graphics.dispose();
         bufferStartegy.show();

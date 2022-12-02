@@ -6,13 +6,19 @@ import java.util.Random;
 public class Game {
     private Display display;
     private List<GameObject> gameObject; //ArrayList af Objekter = GameObject
+    private List<ShoppingBasket> shoppingBaskets;
     private Input input; //Input fra brugeren
     private int width = 700;
     private int height = 500;
+    //private ShoppingBasket shoppingBasket;
 
     public Game(){
         input = new Input();
         display = new Display(width,height, input);//aendret fra w h Skærmstørrelse 700x500 x: 700, y:500
+        shoppingBaskets = new ArrayList<>();
+        shoppingBaskets.add(new ShoppingBasket());
+
+
         gameObject = new ArrayList<>();
 
         //Tilføjer objekter til gameObject ArrayListen
@@ -26,6 +32,7 @@ public class Game {
         //Anvendes til kontrol
         System.out.println("GameObject Størrelse: " + gameObject.size());
         System.out.println(getGameObject());
+
 
 
     }
@@ -71,4 +78,9 @@ public class Game {
     public List<GameObject> getGameObject() {
         return gameObject;
     }
+
+    public List<ShoppingBasket> getShoppingBaskets() {
+        return shoppingBaskets;
+    }
+
 }
