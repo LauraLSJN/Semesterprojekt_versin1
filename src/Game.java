@@ -32,7 +32,8 @@ public class Game {
 
     //Metode til detection af hvorvidt firkanterne på displayet rammer hinanden
     public void detection( ) {
-
+        //boolean hit = false;
+//Der er noget der hedder bound, dette kan vi måske bruge
             for (int x = 1; x < gameObject.size(); x++) {
                 if ((gameObject.get(x).getPosition().getX() >= gameObject.get(0).getPosition().getX()-15)
                 &&  (gameObject.get(x).getPosition().getX() <= gameObject.get(0).getPosition().getX()+35)
@@ -42,8 +43,14 @@ public class Game {
                         && (gameObject.get(x).getPosition().getX() +20 <= gameObject.get(0).getPosition().getX()+ 35)
                 ){
                     System.out.println(gameObject.get(x).getPosition().getX());
-                    System.out.println(gameObject.get(x).toString());
+                    //System.out.println(gameObject.get(x).toString());
+                    //System.out.println("PRICE: " + gameObject.get(x).getPrice().toString());
+                    System.out.println(gameObject.toString());
                     System.out.println(x);
+                    gameObject.remove(x); //Fjerner objektet -> Der bliver ramt
+                    System.out.println(getGameObject()); //Print til konsol -> Se om objektet er fjernet fra arraylist
+
+
                 }
             }
     }
@@ -52,6 +59,7 @@ public class Game {
     public void update(){
         gameObject.forEach(gameObject -> gameObject.update());
         detection();
+
     }
 
 

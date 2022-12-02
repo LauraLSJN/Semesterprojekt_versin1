@@ -1,14 +1,22 @@
 import java.awt.*;
+import java.awt.font.TextAttribute;
 import java.awt.image.BufferedImage;
+import java.text.AttributedString;
 import java.util.Random;
 
 public class FoodObjects extends GameObject {
     Random random = new Random();
+    Font font = new Font("Arial", Font.BOLD, 15);
+    String textInImage;
+    AttributedString attributedText;
 
     //Konstruktør -> Sætter position
     public FoodObjects(){
         //Ny instans af Position klasse
         position = new Position(random.nextInt(700),0);
+        price = new Price();
+        price.setValuePrice(random.nextInt(100));
+        textInImage = String.valueOf(getPrice().getValuePrice()); //Henter valuePrice
     }
 
 
@@ -32,15 +40,36 @@ public class FoodObjects extends GameObject {
         Graphics2D graphics = image.createGraphics();
         graphics.setColor(getFarve().randomColor);
         graphics.fillRect(0, 0, size.getWidth(), size.getHeight());
+        //graphics.drawString("TEST",100,100);
+        setText(graphics);
+
+
+        //https://www.baeldung.com/java-add-text-to-image
+        /*Font font = new Font("Serif", Font.BOLD, 10);
+        String text = "TEST";
+        AttributedString attributedText = new AttributedString(text);
+        attributedText.addAttribute(TextAttribute.FONT, font);
+        attributedText.addAttribute(TextAttribute.FOREGROUND, Color.WHITE);
+        graphics.drawString(attributedText.getIterator(), 0, 20);*/
+
+        //graphics.drawString("TEST", (a+c)/2, (b+d)/2);
         graphics.dispose();
         return image;
     }
 
+    public void setText(Graphics2D graphics){
+        attributedText = new AttributedString(textInImage);
+        attributedText.addAttribute(TextAttribute.FONT, font);
+        attributedText.addAttribute(TextAttribute.FOREGROUND, Color.WHITE);
+        graphics.drawString(attributedText.getIterator(), 2, (size.getHeight()/2)+5);
 
+    }
 
-
-
-
-
-
+    //Printer arrayList til konsollen -> Anvendes til tjek
+    @Override
+    public String toString() {
+        return "FoodObjects{" +
+                "price=" + price +
+                '}';
+    }
 }
