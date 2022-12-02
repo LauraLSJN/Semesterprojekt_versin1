@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class FoodObjects extends GameObject {
     Random random = new Random();
-    Font font = new Font("Arial", Font.BOLD, 15);
+    Font font = new Font("Monospaced", Font.BOLD, 15);
     String textInImage;
     AttributedString attributedText;
 
