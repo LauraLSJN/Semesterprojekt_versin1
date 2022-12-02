@@ -7,10 +7,8 @@ public abstract class GameObject {
     protected Farve randomColor;
 
     public GameObject(){
-        size = new Size(20,20);
+        size = new Size(20,20); //Størrelse på firkanter
         randomColor = new Farve();
-
-
     }
 
 

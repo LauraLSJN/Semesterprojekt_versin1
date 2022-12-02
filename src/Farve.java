@@ -1,6 +1,7 @@
-import java.awt.*;
+
 import java.awt.Color;
 
+//Klasse til at genrer random farve
 public class Farve {
     public Color randomColor;
 

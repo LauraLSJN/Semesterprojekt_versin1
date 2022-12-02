@@ -12,13 +12,12 @@ public class Player implements Controller{
 
     @Override
     public boolean isRequestiongLeft() {
-        return input.isPressed(KeyEvent.VK_LEFT); // means the left arrow
-
+        return input.isPressed(KeyEvent.VK_LEFT); // Venstre pil (Tastatur)
     }
 
     @Override
     public boolean isRequestiongRight() {
-        return input.isPressed(KeyEvent.VK_RIGHT); // means the right arrow
+        return input.isPressed(KeyEvent.VK_RIGHT); // Højre pil (Tastatur)
 
     }
 }
