@@ -15,12 +15,13 @@ public class Game {
     public Game(){
         input = new Input();
         display = new Display(width,height, input);//aendret fra w h Skærmstørrelse 700x500 x: 700, y:500
+
+        //Shoppingkurven
         shoppingBaskets = new ArrayList<>();
         shoppingBaskets.add(new ShoppingBasket());
 
-
+        //Food og Player
         gameObject = new ArrayList<>();
-
         //Tilføjer objekter til gameObject ArrayListen
         gameObject.add(new PlayerObject(new Player(input)));
         gameObject.add(new FoodObjects());
@@ -54,9 +55,11 @@ public class Game {
                     //System.out.println("PRICE: " + gameObject.get(x).getPrice().toString());
                     System.out.println(gameObject.toString());
                     System.out.println(x);
+                    //int price = gameObject.get(x).getPrice().getValuePrice();
+
+                    //shoppingBaskets.add(price);
                     gameObject.remove(x); //Fjerner objektet -> Der bliver ramt
                     System.out.println(getGameObject()); //Print til konsol -> Se om objektet er fjernet fra arraylist
-
 
                 }
             }

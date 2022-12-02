@@ -40,18 +40,13 @@ public class Display extends JFrame {
                 null
 
         ));
-
+        //Usikker på om det er den rigtige måde -Laura
         game.getShoppingBaskets().forEach(shoppingBasket -> graphics.drawImage(
                 shoppingBasket.getSprite(),
                 shoppingBasket.position.getX(),
                 shoppingBasket.position.getY(), null
         ));
 
-        /*game.getShoppingBasket().getSprite().getGraphics().drawImage(
-                game.getShoppingBasket().getSprite(),
-                game.getShoppingBasket().position.getX(),
-                game.getShoppingBasket().position.getY(),null
-        );*/
 
 
 
