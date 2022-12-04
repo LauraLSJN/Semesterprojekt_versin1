@@ -11,7 +11,7 @@ public class Game {
     private int width = 700;
     private int height = 500;
     private boolean gameRunning = true;
-    //ShoppingBasket shoppingBasket;
+
 
 
     //private ShoppingBasket2 shoppingBasket2;
@@ -51,18 +51,13 @@ public class Game {
 
     public void dropFoodObjects(){
         //Tilføjer objekter til gameObject ArrayListen
-   //     while (gameRunning) {
             gameObject.add(new FoodObjects());
             gameObject.add(new FoodObjects());
             gameObject.add(new FoodObjects());
             gameObject.add(new FoodObjects());
             gameObject.add(new FoodObjects());
 
-            if(shoppingBaskets.get(0).nowCollectedFood == shoppingBaskets.get(0).maxValue){
-             //   gameRunning = false;
-                System.out.println("hej");
-            }
-        //}
+
 
 
     }
