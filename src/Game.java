@@ -10,11 +10,17 @@ public class Game {
     private Input input; //Input fra brugeren
     private int width = 700;
     private int height = 500;
+
+
+    private ShoppingBasket2 shoppingBasket2;
     //private ShoppingBasket shoppingBasket;
 
     public Game(){
         input = new Input();
         display = new Display(width,height, input);//aendret fra w h Skærmstørrelse 700x500 x: 700, y:500
+
+        shoppingBasket2 = new ShoppingBasket2();
+
 
         //Shoppingkurven
         shoppingBaskets = new ArrayList<>();
@@ -84,6 +90,10 @@ public class Game {
 
     public List<ShoppingBasket> getShoppingBaskets() {
         return shoppingBaskets;
+    }
+
+    public ShoppingBasket2 getShoppingBasket2() {
+        return shoppingBasket2;
     }
 
 }
