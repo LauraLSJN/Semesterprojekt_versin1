@@ -29,7 +29,7 @@ public class Game {
         //Food og Player
         gameObject = new ArrayList<>();
         //Tilføjer objekter til gameObject ArrayListen
-        gameObject.add(new PlayerObject(new Player(input)));
+        gameObject.add(new PlayerObject(new Player(input))); //playerobject skal være index 0 for at detection virker
         gameObject.add(new FoodObjects());
         gameObject.add(new FoodObjects());
         gameObject.add(new FoodObjects());
