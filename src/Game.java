@@ -10,8 +10,8 @@ public class Game {
     private Input input; //Input fra brugeren
     private int width = 700;
     private int height = 500;
-    private boolean isDetected = false;
-    //ShoppingBasket shoppingBasket;
+    private boolean gameRunning = true;
+
 
 
     //private ShoppingBasket2 shoppingBasket2;
@@ -32,7 +32,6 @@ public class Game {
         dropFoodObjects();
 
 
-
         /*
         //Tilføjer objekter til gameObject ArrayListen
         gameObject.add(new PlayerObject(new Player(input))); //playerobject skal være index 0 for at detection virker
@@ -51,17 +50,22 @@ public class Game {
     }
 
     public void dropFoodObjects(){
-        gameObject.add(new FoodObjects());
-        gameObject.add(new FoodObjects());
-        gameObject.add(new FoodObjects());
-        /*if(shoppingBaskets.get(0).nowCollectedFood != shoppingBaskets.get(0).maxValue){
-            dropFoodObjects();
-        }*/
+        //Tilføjer objekter til gameObject ArrayListen
+   //     while (gameRunning) {
+            gameObject.add(new FoodObjects());
+            gameObject.add(new FoodObjects());
+            gameObject.add(new FoodObjects());
+            gameObject.add(new FoodObjects());
+            gameObject.add(new FoodObjects());
 
+            if(shoppingBaskets.get(0).nowCollectedFood == shoppingBaskets.get(0).maxValue){
+             //   gameRunning = false;
+                System.out.println("hej");
+            }
+        //}
 
 
     }
-
 
     //Metode til detection af hvorvidt firkanterne på displayet rammer hinanden
     public void detection( ) {
@@ -75,27 +79,28 @@ public class Game {
                         && (gameObject.get(x).getPosition().getX() +20 >= gameObject.get(0).getPosition().getX()-15)
                         && (gameObject.get(x).getPosition().getX() +20 <= gameObject.get(0).getPosition().getX()+ 35)
                 ){
-                    isDetected = true;
+
                    // System.out.println("PRICE; " + gameObject.get(x).getPrice().getValuePrice());
                     shoppingBaskets.get(0).setCollectedFood(gameObject.get(x).getPrice().getValuePrice());
+
                     shoppingBaskets.get(0).addCollectedFood(gameObject.get(x).getPrice().getValuePrice());
-                    dropFoodObjects();
+
+                    if(shoppingBaskets.get(0).nowCollectedFood != shoppingBaskets.get(0).maxValue){
+                        dropFoodObjects();
+                    }
+
                     System.out.println(gameObject.get(x).getPosition().getX());
                     //System.out.println(gameObject.get(x).toString());
                     //System.out.println("PRICE: " + gameObject.get(x).getPrice().toString());
                     System.out.println(gameObject.toString());
                     System.out.println(x);
                     //int price = gameObject.get(x).getPrice().getValuePrice();
+
                     //shoppingBaskets.add(price);
                     gameObject.remove(x); //Fjerner objektet -> Der bliver ramt
                     System.out.println(getGameObject()); //Print til konsol -> Se om objektet er fjernet fra arraylist
 
                 }
-
-
-
-
-
             }
     }
 
