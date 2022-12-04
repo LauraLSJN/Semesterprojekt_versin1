@@ -5,6 +5,7 @@ public class ShoppingBasket2 {
 
     public ShoppingBasket2(){
         this.position = new Position(300,300);
+        System.out.println("Test");
 
     }
 
