@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class FoodObjects extends GameObject {
     Random random = new Random();
-    Font font = new Font("Monospaced", Font.BOLD, 15);
+    Font font = new Font("Monospaced", Font.BOLD, 10);
     String textInImage;
     AttributedString attributedText;
 
@@ -15,7 +15,8 @@ public class FoodObjects extends GameObject {
         //Ny instans af Position klasse
         position = new Position(random.nextInt(680),0); //680, så der ikke placeres uden for display
         price = new Price();
-        price.setValuePrice(random.nextInt(100));
+        price.setValuePrice(random.nextInt(-50,50));
+        //price.setValuePrice(random.nextInt(100));
         textInImage = String.valueOf(getPrice().getValuePrice()); //Henter valuePrice
     }
 

@@ -7,7 +7,6 @@ public class ShoppingBasket {
     Position position;
     int maxValue;
     String maxValueString;
-    String nowCollectedFoodString;
     AttributedString attributedText;
     int rectx = 10;
     int recty = 10;
@@ -21,7 +20,7 @@ public class ShoppingBasket {
 
     public ShoppingBasket(){
         position = new Position(0,0);
-        this.maxValue = 500;
+        this.maxValue = 100;
         maxValueString = String.valueOf(maxValue);
         this.collectedFood = 0;
         this.oldCollectedFood = 0;
@@ -55,7 +54,14 @@ public class ShoppingBasket {
 
     public int addCollectedFood(int foodValue){
         System.out.println("old: " + oldCollectedFood + "foodvalue: " + foodValue);
-        nowCollectedFood = oldCollectedFood += foodValue;
+        System.out.println("old1 = " + oldCollectedFood);
+
+        //nowCollectedFood += foodValue;
+        System.out.println("OldCollectedFood" + oldCollectedFood + " + " + "foodValue " + foodValue);
+        nowCollectedFood = oldCollectedFood += foodValue; //FInd ud af hvorfor += virker og ikke hvis man deler det op
+        System.out.println("old2 = " + oldCollectedFood);
+        //nowCollectedFood = oldCollectedFood + foodValue;
+        System.out.println("NowCOllectedFood = " +nowCollectedFood);
       return nowCollectedFood;
 
 // return collectedFood += foodValue;
