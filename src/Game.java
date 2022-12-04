@@ -10,18 +10,16 @@ public class Game {
     private Input input; //Input fra brugeren
     private int width = 700;
     private int height = 500;
+    //ShoppingBasket shoppingBasket;
 
 
-    private ShoppingBasket2 shoppingBasket2;
+    //private ShoppingBasket2 shoppingBasket2;
     //private ShoppingBasket shoppingBasket;
 
     public Game(){
         input = new Input();
         display = new Display(width,height, input);//aendret fra w h Skærmstørrelse 700x500 x: 700, y:500
-
-        shoppingBasket2 = new ShoppingBasket2();
-
-
+        //shoppingBasket2 = new ShoppingBasket2();
         //Shoppingkurven
         shoppingBaskets = new ArrayList<>();
         shoppingBaskets.add(new ShoppingBasket());
@@ -76,6 +74,8 @@ public class Game {
     public void update(){
         gameObject.forEach(gameObject -> gameObject.update());
         detection();
+        shoppingBaskets.forEach(shoppingBasket -> shoppingBasket.update());
+
 
     }
 
@@ -93,8 +93,8 @@ public class Game {
         return shoppingBaskets;
     }
 
-    public ShoppingBasket2 getShoppingBasket2() {
+    /*public ShoppingBasket2 getShoppingBasket2() {
         return shoppingBasket2;
-    }
+    }*/
 
 }

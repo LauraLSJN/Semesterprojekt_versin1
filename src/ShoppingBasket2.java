@@ -10,7 +10,7 @@ public class ShoppingBasket2 {
     }
 
     public void paintBasket(Graphics2D g){
-        g.setColor(Color.white);
+        g.setColor(Color.GREEN);
         g.drawRect(position.getX(), position.getY(), 50,50);
     }
 

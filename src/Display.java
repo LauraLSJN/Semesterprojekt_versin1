@@ -29,7 +29,7 @@ public class Display extends JFrame {
         Graphics graphics = bufferStartegy.getDrawGraphics();
 
         graphics.fillRect(0, 0, canvas.getWidth(),canvas.getHeight());
-        game.getShoppingBasket2();
+        //game.getShoppingBasket2();
 
 
         //Henter gameObjects (FoodObjcts & PlayerObjects) og tegner det
