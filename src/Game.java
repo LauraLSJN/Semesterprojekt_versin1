@@ -27,6 +27,9 @@ public class Game {
 
         //Food og Player
         gameObject = new ArrayList<>();
+        dropFoodObjects();
+
+        /*
         //Tilføjer objekter til gameObject ArrayListen
         gameObject.add(new PlayerObject(new Player(input))); //playerobject skal være index 0 for at detection virker
         gameObject.add(new FoodObjects());
@@ -34,10 +37,25 @@ public class Game {
         gameObject.add(new FoodObjects());
         gameObject.add(new FoodObjects());
         gameObject.add(new FoodObjects());
-
+*/
         //Anvendes til kontrol
         System.out.println("GameObject Størrelse: " + gameObject.size());
         System.out.println(getGameObject());
+
+
+
+    }
+
+    public void dropFoodObjects(){
+        //Tilføjer objekter til gameObject ArrayListen
+
+            gameObject.add(new PlayerObject(new Player(input))); //playerobject skal være index 0 for at detection virker
+            gameObject.add(new FoodObjects());
+            gameObject.add(new FoodObjects());
+            gameObject.add(new FoodObjects());
+            gameObject.add(new FoodObjects());
+            gameObject.add(new FoodObjects());
+
 
 
 
@@ -55,6 +73,12 @@ public class Game {
                         && (gameObject.get(x).getPosition().getX() +20 >= gameObject.get(0).getPosition().getX()-15)
                         && (gameObject.get(x).getPosition().getX() +20 <= gameObject.get(0).getPosition().getX()+ 35)
                 ){
+
+                   // System.out.println("PRICE; " + gameObject.get(x).getPrice().getValuePrice());
+                    shoppingBaskets.get(0).setCollectedFood(gameObject.get(x).getPrice().getValuePrice());
+
+                    shoppingBaskets.get(0).addCollectedFood(gameObject.get(x).getPrice().getValuePrice());
+
                     System.out.println(gameObject.get(x).getPosition().getX());
                     //System.out.println(gameObject.get(x).toString());
                     //System.out.println("PRICE: " + gameObject.get(x).getPrice().toString());
