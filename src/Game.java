@@ -55,8 +55,8 @@ public class Game {
             gameObject.add(new FoodObjects());
             gameObject.add(new FoodObjects());
             gameObject.add(new FoodObjects());
-            gameObject.add(new FoodObjects());
-            gameObject.add(new FoodObjects());
+            //gameObject.add(new FoodObjects());
+            //gameObject.add(new FoodObjects());
 
             if(shoppingBaskets.get(0).nowCollectedFood == shoppingBaskets.get(0).maxValue){
              //   gameRunning = false;
@@ -104,9 +104,23 @@ public class Game {
             }
     }
 
+    public void detectionOutOfDisplay(){
+        for (int i = 1; i < gameObject.size(); i++) {
+            if(gameObject.get(i).getPosition().getY() >= height){
+                gameObject.remove(i);
+                System.out.println(gameObject.toString());
+                System.out.println("i er fjernet");
+            }
+            if(gameObject.size() == 1){
+                dropFoodObjects();
+            }
+        }
+    }
+
 
     public void update(){
         gameObject.forEach(gameObject -> gameObject.update());
+        detectionOutOfDisplay();
         detection();
         shoppingBaskets.forEach(shoppingBasket -> shoppingBasket.update());
 
