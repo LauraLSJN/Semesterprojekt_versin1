@@ -129,7 +129,6 @@ public class Game {
     }
 
 
-
     public void render(){
         display.render(this);
     }
