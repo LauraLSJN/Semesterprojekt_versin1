@@ -25,6 +25,7 @@ public class Game {
         //Shoppingkurven
         shoppingBaskets = new ArrayList<>();
         shoppingBaskets.add(new ShoppingBasket());
+        System.out.println("Test");
 
         //Food og Player
         gameObject = new ArrayList<>();
