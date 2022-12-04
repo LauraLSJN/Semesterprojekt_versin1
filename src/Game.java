@@ -10,6 +10,7 @@ public class Game {
     private Input input; //Input fra brugeren
     private int width = 700;
     private int height = 500;
+    private boolean gameRunning = true;
     //ShoppingBasket shoppingBasket;
 
 
@@ -27,7 +28,9 @@ public class Game {
 
         //Food og Player
         gameObject = new ArrayList<>();
+        gameObject.add(new PlayerObject(new Player(input))); //playerobject skal være index 0 for at detection virker
         dropFoodObjects();
+
 
         /*
         //Tilføjer objekter til gameObject ArrayListen
@@ -48,15 +51,18 @@ public class Game {
 
     public void dropFoodObjects(){
         //Tilføjer objekter til gameObject ArrayListen
-
-            gameObject.add(new PlayerObject(new Player(input))); //playerobject skal være index 0 for at detection virker
+   //     while (gameRunning) {
             gameObject.add(new FoodObjects());
             gameObject.add(new FoodObjects());
             gameObject.add(new FoodObjects());
             gameObject.add(new FoodObjects());
             gameObject.add(new FoodObjects());
 
-
+            if(shoppingBaskets.get(0).nowCollectedFood == shoppingBaskets.get(0).maxValue){
+             //   gameRunning = false;
+                System.out.println("hej");
+            }
+        //}
 
 
     }
@@ -79,6 +85,10 @@ public class Game {
 
                     shoppingBaskets.get(0).addCollectedFood(gameObject.get(x).getPrice().getValuePrice());
 
+                    if(shoppingBaskets.get(0).nowCollectedFood != shoppingBaskets.get(0).maxValue){
+                        dropFoodObjects();
+                    }
+
                     System.out.println(gameObject.get(x).getPosition().getX());
                     //System.out.println(gameObject.get(x).toString());
                     //System.out.println("PRICE: " + gameObject.get(x).getPrice().toString());
@@ -99,6 +109,7 @@ public class Game {
         gameObject.forEach(gameObject -> gameObject.update());
         detection();
         shoppingBaskets.forEach(shoppingBasket -> shoppingBasket.update());
+
 
 
     }
