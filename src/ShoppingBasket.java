@@ -52,17 +52,18 @@ public class ShoppingBasket {
 
     }
 
-    public int addCollectedFood(int foodValue){
-        System.out.println("old: " + oldCollectedFood + "foodvalue: " + foodValue);
-        System.out.println("old1 = " + oldCollectedFood);
+    public void addCollectedFood(int foodValue){
+        //System.out.println("old: " + oldCollectedFood + "foodvalue: " + foodValue);
+        //System.out.println("old1 = " + oldCollectedFood);
 
         //nowCollectedFood += foodValue;
-        System.out.println("OldCollectedFood" + oldCollectedFood + " + " + "foodValue " + foodValue);
-        nowCollectedFood = oldCollectedFood += foodValue; //FInd ud af hvorfor += virker og ikke hvis man deler det op
-        System.out.println("old2 = " + oldCollectedFood);
+        //System.out.println("OldCollectedFood" + this.oldCollectedFood + " + " + "foodValue " + foodValue);
+        System.out.println("NowCOllectedFoodFør = " +this.nowCollectedFood);
+        this.nowCollectedFood = this.nowCollectedFood + foodValue; //FInd ud af hvorfor += virker og ikke hvis man deler det op
+
+        //System.out.println("old2 = " + oldCollectedFood);
         //nowCollectedFood = oldCollectedFood + foodValue;
-        System.out.println("NowCOllectedFood = " +nowCollectedFood);
-      return nowCollectedFood;
+        System.out.println("NowCOllectedFoodEfter = " +this.nowCollectedFood);
 
 // return collectedFood += foodValue;
     }
