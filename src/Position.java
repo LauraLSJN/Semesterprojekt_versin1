@@ -38,9 +38,7 @@ public class Position {
 
     public void setY(int y) {
         this.y = y;
-        //Tjek for om det nye y er indenfor max
-    }
 
-    //Denne klasse kan styre at objekter ikke må komme ud for billedet
+    }
 
 }

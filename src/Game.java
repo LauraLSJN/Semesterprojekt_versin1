@@ -7,26 +7,20 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     private List<GameObject> gameObject; //ArrayList af Objekter = GameObject
     private List<ShoppingBasket> shoppingBaskets;
     private List<Tid> tid;
-    private List<Text> text;
     private Input input; //Input fra brugeren
     private int width = 700;
     private int height = 500;
     Random random = new Random();
 
-
-
-
-    //private ShoppingBasket2 shoppingBasket2;
-    //private ShoppingBasket shoppingBasket;
-
     public Game(){
         input = new Input();
-        display = new Display(width,height, input);//aendret fra w h Skærmstørrelse 700x500 x: 700, y:500
-        //shoppingBasket2 = new ShoppingBasket2();
-        //Shoppingkurven
+        display = new Display(width, height, input);//aendret fra w h Skærmstørrelse 700x500 x: 700, y:500
+
+        //Tid
         tid = new ArrayList<>();
         tid.add(new Tid());
 
+        //Shoppingkurven
         shoppingBaskets = new ArrayList<>();
         shoppingBaskets.add(new ShoppingBasket());
         System.out.println("Test");
@@ -57,26 +51,22 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
 
     }
 
-    public void addFoodObjects(){
-        //Tilføjer objekter til gameObject ArrayListen
-            gameObject.add(new FoodObjects());
-            //gameObject.add(new FoodObjects());
-            //gameObject.add(new FoodObjects());
-            //gameObject.add(new FoodObjects());
-            //gameObject.add(new FoodObjects());
-
+    //Tilføjer foodObjects til gameObject arraylisten
+    public void addFoodObjects() {
+        gameObject.add(new FoodObjects());
+        //gameObject.add(new FoodObjects());
+        //gameObject.add(new FoodObjects());
     }
 
-    public void dropFoodObjects(){
+    //Dropper foodoOjects
+    public void dropFoodObjects() {
         int randomTal = random.nextInt(2000);
         if (randomTal <= 25){
             if(shoppingBaskets.get(0).nowCollectedFood != shoppingBaskets.get(0).maxValue){
                 addFoodObjects();
             } else {
                 for (int i = 1; i < gameObject.size(); i++) {
-                    gameObject.remove(i);
-                    //text.get(0);
-
+                    gameObject.remove(i); //Fjerne dem der ikke er ramt fra ArrayListe
 
                 }
             }
@@ -126,8 +116,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         for (int i = 1; i < gameObject.size(); i++) {
             if(gameObject.get(i).getPosition().getY() >= gameObject.get(0).getPosition().getY()+20){
                 gameObject.remove(i);
-                System.out.println(gameObject.toString());
-                System.out.println("i er fjernet");
+                //System.out.println(gameObject.toString()); //Anvendes til kontrol
             }
 
         }
@@ -139,11 +128,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         detectionOutOfDisplay();
         detection();
         dropFoodObjects();
-        shoppingBaskets.forEach(shoppingBasket -> shoppingBasket.update());
-        //tid.forEach(tid -> tid.countdownTimer());
-
-
-      //  tid.forEach(tid -> tid.countdownTimer());
+        //shoppingBaskets.forEach(shoppingBasket -> shoppingBasket.update());
         tid.forEach(tid -> tid.update());
 
     }
@@ -167,8 +152,5 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         return tid;
     }
 
-    /*public ShoppingBasket2 getShoppingBasket2() {
-        return shoppingBasket2;
-    }*/
 
 }

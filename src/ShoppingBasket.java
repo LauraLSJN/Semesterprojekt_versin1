@@ -29,49 +29,17 @@ public class ShoppingBasket {
         this.oldCollectedFood = 0;
     }
 
-
-
-
-    public int getCollectedFood() {
-        return collectedFood;
-    }
-
     public void setCollectedFood(int collectedFood) {
         this.collectedFood = collectedFood;
         System.out.println("SET METODE: " + collectedFood);
     }
 
-    /*public int getMaxValue() {
-        return maxValue;
-    }*/
 
-    /*public void setMaxValue(int maxValue) {
-        this.maxValue = maxValue;
-    }*/
+    public void addCollectedFood(int foodValue) {
+        //System.out.println("NowCOllectedFoodFør = " +this.nowCollectedFood); //Kontrol
+        this.nowCollectedFood = this.nowCollectedFood + foodValue; //Opdaterer nowCollectedFood
+        //System.out.println("NowCOllectedFoodEfter = " +this.nowCollectedFood); //Kontrol
 
-    public void update(){
-
-       //int test =  addCollectedFood(collectedFood);
-        //System.out.println("Test: " + test);
-       // System.out.println(collectedFood);
-
-
-    }
-
-    public void addCollectedFood(int foodValue){
-        //System.out.println("old: " + oldCollectedFood + "foodvalue: " + foodValue);
-        //System.out.println("old1 = " + oldCollectedFood);
-
-        //nowCollectedFood += foodValue;
-        //System.out.println("OldCollectedFood" + this.oldCollectedFood + " + " + "foodValue " + foodValue);
-        System.out.println("NowCOllectedFoodFør = " +this.nowCollectedFood);
-        this.nowCollectedFood = this.nowCollectedFood + foodValue; //FInd ud af hvorfor += virker og ikke hvis man deler det op
-
-        //System.out.println("old2 = " + oldCollectedFood);
-        //nowCollectedFood = oldCollectedFood + foodValue;
-        System.out.println("NowCOllectedFoodEfter = " +this.nowCollectedFood);
-
-// return collectedFood += foodValue;
     }
 
     public Image getSprite() {
@@ -91,10 +59,7 @@ public class ShoppingBasket {
         attributedText = new AttributedString(text);
         attributedText.addAttribute(TextAttribute.FONT, font); //Font
         attributedText.addAttribute(TextAttribute.FOREGROUND, Color.WHITE); //Sættes til foreground + farve = hvid
-        graphics.drawString(attributedText.getIterator(), x, y);
-
-        //graphics.drawString(attributedText.getIterator(), rectx+fontSize, recty+fontSize); //Placeres i billede -> X og y kordinat er i henhold til image
-
+        graphics.drawString(attributedText.getIterator(), x, y); //Placeres i billede -> X og y kordinat er i henhold til image
     }
 
 

@@ -23,16 +23,15 @@ public class Tid {
     String ddMinute;
     String ddMinSec;
     DecimalFormat ddFormat = new DecimalFormat("00");
-    DecimalFormat dcFormat = new DecimalFormat("00");
-    Font font = new Font("Monospaced", Font.BOLD, 10);
+    int fontSize = 15;
+    int xText = 15;
+    int width = 100;
+    int height = 50;
+
+    //TEKST
+    Font font = new Font("Monospaced", Font.BOLD, fontSize);
     String textInImage;
     AttributedString attributedText;
-    Main main;
-
-    int sec = 0;
-    int min = 3;
-    String ddSec;
-    String ddMin;
 
 
 
@@ -90,26 +89,9 @@ public class Tid {
 
             this.textInImage = (ddMinute + ":" + ddSecond + ":" + ddMinSec );
 
-            /*
-            Thread.sleep(1000);
-        second--;
-            Thread.sleep(1000);
-        ddSecond = ddFormat.format(second);
-        ddMinute = ddFormat.format(minute);
-        this.textInImage = (ddMinute + ":" + ddSecond);
-        if(second==-1) {
-            second = 59;
-            Thread.sleep(1000);
-            minute--;
-            Thread.sleep(1000);
-            ddSecond = ddFormat.format(second);
-            ddMinute = ddFormat.format(minute);
-            this.textInImage = (ddMinute + ":" + ddSecond);
-
-        }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
+        /**
+         * Mangler metode til når timer rammer 00:00:00, spillet skal stoppes.
+         */
 
     }
 
@@ -148,7 +130,7 @@ public class Tid {
         BufferedImage image = new BufferedImage(100,50, BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = image.createGraphics();
         graphics.setColor(Color.darkGray);
-        graphics.fillRect(0, 0, 100, 50);
+        graphics.fillRect(0, 0, width, height);
         setText(graphics);
         graphics.dispose();
         return image;

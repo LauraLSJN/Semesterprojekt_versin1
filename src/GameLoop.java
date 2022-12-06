@@ -26,11 +26,8 @@ public class GameLoop implements Runnable{
             accumulator += lastRenderTimeInSeconds;
             lastUpdate = currentTime;
 
-            System.out.println("CURRENT TIME: " + currentTime);
-
-
-            if (accumulator >= updateRate ){
-                while(accumulator >= updateRate){
+            if (accumulator >= updateRate) {
+                while (accumulator >= updateRate) {
                     update();
                     accumulator -= updateRate;
                 }
