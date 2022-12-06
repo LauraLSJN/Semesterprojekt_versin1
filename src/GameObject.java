@@ -12,7 +12,6 @@ public abstract class GameObject {
         randomColor = new Farve();
     }
 
-
     public abstract Image getSprite();
     public abstract void update();
 

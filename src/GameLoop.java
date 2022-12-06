@@ -1,15 +1,15 @@
 
 
-public class GameLoop implements Runnable{
+public class GameLoop implements Runnable {
 
     private Game game;
 
     private boolean running;
-    private final double updateRate = 1.0d/60.0d;
+    private final double updateRate = 1.0d / 60.0d;
     private long nextStatTime;
     private int fps, ups;
 
-    public GameLoop(Game game){
+    public GameLoop(Game game) {
         this.game = game;
     }
 
@@ -20,7 +20,7 @@ public class GameLoop implements Runnable{
         long currentTime, lastUpdate = System.currentTimeMillis();
         nextStatTime = System.currentTimeMillis() + 1000;
 
-        while(running){
+        while (running) {
             currentTime = System.currentTimeMillis();
             double lastRenderTimeInSeconds = (currentTime - lastUpdate) / 1000d;
             accumulator += lastRenderTimeInSeconds;
@@ -40,7 +40,7 @@ public class GameLoop implements Runnable{
     }
 
     private void printStats() {
-        if (System.currentTimeMillis() > nextStatTime){
+        if (System.currentTimeMillis() > nextStatTime) {
             //System.out.println(String.format("FPS: %d, UPS: %d", fps, ups));
             fps = 0;
             ups = 0;

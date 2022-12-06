@@ -12,7 +12,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     private int height = 500;
     Random random = new Random();
 
-    public Game(){
+    public Game() {
         input = new Input();
         display = new Display(width, height, input);//aendret fra w h Skærmstørrelse 700x500 x: 700, y:500
 
@@ -30,23 +30,9 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         gameObject.add(new PlayerObject(new Player(input))); //playerobject skal være index 0 for at detection virker
         addFoodObjects();
 
-        text = new ArrayList<>();
-        text.add(new Text());
-
-
-        /*
-        //Tilføjer objekter til gameObject ArrayListen
-        gameObject.add(new PlayerObject(new Player(input))); //playerobject skal være index 0 for at detection virker
-        gameObject.add(new FoodObjects());
-        gameObject.add(new FoodObjects());
-        gameObject.add(new FoodObjects());
-        gameObject.add(new FoodObjects());
-        gameObject.add(new FoodObjects());
-*/
         //Anvendes til kontrol
         System.out.println("GameObject Størrelse: " + gameObject.size());
         System.out.println(getGameObject());
-
 
 
     }
@@ -61,9 +47,9 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     //Dropper foodoOjects
     public void dropFoodObjects() {
         int randomTal = random.nextInt(2000);
-        if (randomTal <= 25){
-            if(shoppingBaskets.get(0).nowCollectedFood != shoppingBaskets.get(0).maxValue){
-                addFoodObjects();
+        if (randomTal <= 25) {
+            if (shoppingBaskets.get(0).nowCollectedFood != shoppingBaskets.get(0).maxValue) {
+                addFoodObjects(); //Tilføjer nyt objekt til arrayliste hvis shoppingBasket ikke er lig maks
             } else {
                 for (int i = 1; i < gameObject.size(); i++) {
                     gameObject.remove(i); //Fjerne dem der ikke er ramt fra ArrayListe
@@ -75,45 +61,35 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     }
 
     //Metode til detection af hvorvidt firkanterne på displayet rammer hinanden
-    public void detection( ) {
-        //boolean hit = false;
-//Der er noget der hedder bound, dette kan vi måske bruge
-            for (int x = 1; x < gameObject.size(); x++) {
-                if ((gameObject.get(x).getPosition().getX() >= gameObject.get(0).getPosition().getX()-15)
-                &&  (gameObject.get(x).getPosition().getX() <= gameObject.get(0).getPosition().getX()+35)
-                        && (gameObject.get(x).getPosition().getY()+20 >= gameObject.get(0).getPosition().getY())
-                        && (gameObject.get(x).getPosition().getY()+20 <= gameObject.get(0).getPosition().getY()+30)
-                        && (gameObject.get(x).getPosition().getX() +20 >= gameObject.get(0).getPosition().getX()-15)
-                        && (gameObject.get(x).getPosition().getX() +20 <= gameObject.get(0).getPosition().getX()+ 35)
-                ){
+    public void detection() {
+        for (int x = 1; x < gameObject.size(); x++) {
+            if ((gameObject.get(x).getPosition().getX() >= gameObject.get(0).getPosition().getX() - 15)
+                    && (gameObject.get(x).getPosition().getX() <= gameObject.get(0).getPosition().getX() + 35)
+                    && (gameObject.get(x).getPosition().getY() + 20 >= gameObject.get(0).getPosition().getY())
+                    && (gameObject.get(x).getPosition().getY() + 20 <= gameObject.get(0).getPosition().getY() + 30)
+                    && (gameObject.get(x).getPosition().getX() + 20 >= gameObject.get(0).getPosition().getX() - 15)
+                    && (gameObject.get(x).getPosition().getX() + 20 <= gameObject.get(0).getPosition().getX() + 35)
+            ) {
 
-                   // System.out.println("PRICE; " + gameObject.get(x).getPrice().getValuePrice());
-                    shoppingBaskets.get(0).setCollectedFood(gameObject.get(x).getPrice().getValuePrice());
+                //SET
+                shoppingBaskets.get(0).setCollectedFood(gameObject.get(x).getPrice().getValuePrice());
+                //ADD
+                shoppingBaskets.get(0).addCollectedFood(gameObject.get(x).getPrice().getValuePrice());
 
-                    shoppingBaskets.get(0).addCollectedFood(gameObject.get(x).getPrice().getValuePrice());
+                System.out.println(gameObject.get(x).getPosition().getX());
+                System.out.println(gameObject.toString());
+                System.out.println(x);
 
-                   // if(shoppingBaskets.get(0).nowCollectedFood != shoppingBaskets.get(0).maxValue){
-                     //   addFoodObjects();
-                    //}
+                gameObject.remove(x); //Fjerner objektet -> Der bliver ramt
+                System.out.println(getGameObject()); //Print til konsol -> Se om objektet er fjernet fra arraylist
 
-                    System.out.println(gameObject.get(x).getPosition().getX());
-                    //System.out.println(gameObject.get(x).toString());
-                    //System.out.println("PRICE: " + gameObject.get(x).getPrice().toString());
-                    System.out.println(gameObject.toString());
-                    System.out.println(x);
-                    //int price = gameObject.get(x).getPrice().getValuePrice();
-
-                    //shoppingBaskets.add(price);
-                    gameObject.remove(x); //Fjerner objektet -> Der bliver ramt
-                    System.out.println(getGameObject()); //Print til konsol -> Se om objektet er fjernet fra arraylist
-
-                }
             }
+        }
     }
 
-    public void detectionOutOfDisplay(){
+    public void detectionOutOfDisplay() {
         for (int i = 1; i < gameObject.size(); i++) {
-            if(gameObject.get(i).getPosition().getY() >= gameObject.get(0).getPosition().getY()+20){
+            if (gameObject.get(i).getPosition().getY() >= gameObject.get(0).getPosition().getY() + 20) {
                 gameObject.remove(i);
                 //System.out.println(gameObject.toString()); //Anvendes til kontrol
             }
@@ -121,21 +97,16 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         }
     }
 
-
-    public void update(){ //bruger lamda expression igen
+    public void update() {
         gameObject.forEach(gameObject -> gameObject.update());
         detectionOutOfDisplay();
         detection();
         dropFoodObjects();
         //shoppingBaskets.forEach(shoppingBasket -> shoppingBasket.update());
         tid.forEach(tid -> tid.update());
-
     }
 
-
-
-
-    public void render(){
+    public void render() {
         display.render(this);
     }
 
