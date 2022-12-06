@@ -143,7 +143,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         //tid.forEach(tid -> tid.countdownTimer());
 
 
-       // tid.forEach(tid -> tid.countdownTimer());
+      //  tid.forEach(tid -> tid.countdownTimer());
         tid.forEach(tid -> tid.update());
 
     }
