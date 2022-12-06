@@ -45,27 +45,7 @@ public class Tid {
         //timer.start();
 
     }
-/*
 
-    public void actionPerformed(ActionEvent e){
-        sec--;
-        ddSecond = ddFormat.format(sec);
-        ddMinute = ddFormat.format(min);
-        this.textInImage = (ddMin + ":" + ddSec);
-
-        if(sec==-1) {
-            sec = 59;
-            min--;
-            ddSecond = ddFormat.format(sec);
-            ddMinute = ddFormat.format(min);
-            this.textInImage = (ddMin + ":" + ddSec);
-        }
-       /* if(minute==0 && second==0) {
-            timer.stop();
-        }*/
-/*
-    }
-    */
 
     public void update(){
 

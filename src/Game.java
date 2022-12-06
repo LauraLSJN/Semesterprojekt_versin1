@@ -72,7 +72,6 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
             }
 
         }
-
     }
 
     //Metode til detection af hvorvidt firkanterne på displayet rammer hinanden
