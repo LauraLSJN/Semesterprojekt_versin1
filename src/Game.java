@@ -10,6 +10,7 @@ public class Game {
     private int width = 700;
     private int height = 500;
     private boolean gameRunning = true;
+    Random random = new Random();
 
 
 
@@ -50,7 +51,7 @@ public class Game {
 
     public void addFoodObjects(){
         //Tilføjer objekter til gameObject ArrayListen
-   //     while (gameRunning) {
+
             gameObject.add(new FoodObjects());
             //gameObject.add(new FoodObjects());
             //gameObject.add(new FoodObjects());
@@ -111,7 +112,7 @@ public class Game {
 
     public void detectionOutOfDisplay(){
         for (int i = 1; i < gameObject.size(); i++) {
-            if(gameObject.get(i).getPosition().getY() >= height){
+            if(gameObject.get(i).getPosition().getY() >= gameObject.get(0).getPosition().getY()){
                 gameObject.remove(i);
                 System.out.println(gameObject.toString());
                 System.out.println("i er fjernet");
