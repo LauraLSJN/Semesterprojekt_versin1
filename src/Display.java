@@ -64,6 +64,11 @@ public class Display extends JFrame {
                 shoppingBasket.position.getY(), null
         ));
 
+        game.getTid().forEach(tid -> graphics.drawImage(
+                tid.getSprite(),
+                tid.position.getX(), tid.position.getY(),null
+        ));
+
 
 
         graphics.dispose();
