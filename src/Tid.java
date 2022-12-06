@@ -79,8 +79,6 @@ public class Tid {
     public void countdownTimer(){
 
 
-
-
                 second--;
                 ddSecond = ddFormat.format(second);
                 ddMinute = ddFormat.format(minute);
