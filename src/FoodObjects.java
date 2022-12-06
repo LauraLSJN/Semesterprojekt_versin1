@@ -4,14 +4,14 @@ import java.awt.image.BufferedImage;
 import java.text.AttributedString;
 import java.util.Random;
 
-public class FoodObjects extends GameObject {
+public class FoodObjects extends GameObject { //globale variabler som vi bruger
     Random random = new Random();
     Font font = new Font("Monospaced", Font.BOLD, 10);
     String textInImage;
     AttributedString attributedText;
 
     //Konstruktør -> Sætter position
-    public FoodObjects(){
+    public FoodObjects(){ //herunder bliver værdierne som vi gerne vil have blive sat
         //Ny instans af Position klasse
         position = new Position(random.nextInt(680),0); //680, så der ikke placeres uden for display
         price = new Price();

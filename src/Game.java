@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Game {
+public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vores spil. Det vigtigste her er de to lister
     private Display display;
     private List<GameObject> gameObject; //ArrayList af Objekter = GameObject
     private List<ShoppingBasket> shoppingBaskets;
@@ -122,7 +122,7 @@ public class Game {
     }
 
 
-    public void update(){
+    public void update(){ //bruger lamda expression igen
         gameObject.forEach(gameObject -> gameObject.update());
         detectionOutOfDisplay();
         detection();

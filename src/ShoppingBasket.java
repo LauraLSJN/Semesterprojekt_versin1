@@ -2,6 +2,9 @@ import java.awt.*;
 import java.awt.font.TextAttribute;
 import java.awt.image.BufferedImage;
 import java.text.AttributedString;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class ShoppingBasket {
     Position position;
@@ -25,6 +28,9 @@ public class ShoppingBasket {
         this.collectedFood = 0;
         this.oldCollectedFood = 0;
     }
+
+
+
 
     public int getCollectedFood() {
         return collectedFood;

@@ -24,7 +24,7 @@ public class Display extends JFrame {
         setVisible(true);
     }
 
-    public void render(Game game){
+    public void render(Game game){ //lamda expressions
         BufferStrategy bufferStartegy = canvas.getBufferStrategy();
         Graphics graphics = bufferStartegy.getDrawGraphics();
 
@@ -34,7 +34,7 @@ public class Display extends JFrame {
 
         //Henter gameObjects (FoodObjcts & PlayerObjects) og tegner det
         //Anvender Lambda Expression
-        game.getGameObject().forEach(gameObject -> graphics.drawImage(
+        game.getGameObject().forEach(gameObject -> graphics.drawImage( //gameobject vi har foodobjekter og player i
                 gameObject.getSprite(),
                 gameObject.getPosition().getX(),
                 gameObject.getPosition().getY(),
@@ -51,8 +51,8 @@ public class Display extends JFrame {
         graphics.dispose();
         bufferStartegy.show();
 
-
     }
+
 
 
 }
