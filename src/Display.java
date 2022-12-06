@@ -9,16 +9,14 @@ import java.io.IOException;
 public class Display extends JFrame {
 
     private Canvas canvas;
-    Image img = Toolkit.getDefaultToolkit().getImage("/Users/laura/Desktop/shoppingMarket.jpg");
+    Image img = Toolkit.getDefaultToolkit().getImage("/Users/laura/Desktop/shoppingMarket.jpg"); //Erstat stigen, men din egen sti
 
 
     public Display(int width, int height, Input input){
         setTitle("MyFoodSolver");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
-
         canvas = new Canvas();
-        //canvas.setBackground(Color.GREEN);
         canvas.setPreferredSize(new Dimension(width, height));
         canvas.setFocusable(false);
         add(canvas);
@@ -31,21 +29,12 @@ public class Display extends JFrame {
         setVisible(true);
     }
 
-    public void render(Game game){ //lamda expressions
+    public void render(Game game){
         BufferStrategy bufferStartegy = canvas.getBufferStrategy();
         Graphics graphics = bufferStartegy.getDrawGraphics();
 
-        graphics.drawImage(img, 0, 0,700,500,null);
-
-        //graphics.
-        //graphics.drawImage()
-        //canvas.setBackground(Color.GREEN);
-
-
-        //graphics.fillRect(0, 0, canvas.getWidth(),canvas.getHeight());
-        //graphics.drawString("HEJ",300,300);
-        //game.getShoppingBasket2();
-
+        graphics.drawImage(img, 0, 0,700,500,null); //"Tegner" baggrunden som billedet
+        //graphics.fillRect(0, 0, canvas.getWidth(),canvas.getHeight()); //Kan anvendes hvis billede ikke virker
 
 
         //Henter gameObjects (FoodObjcts & PlayerObjects) og tegner det
@@ -57,31 +46,25 @@ public class Display extends JFrame {
                 null
 
         ));
-        //Usikker på om det er den rigtige måde -Laura
+        //Tegner shoppingBasket
         game.getShoppingBaskets().forEach(shoppingBasket -> graphics.drawImage(
                 shoppingBasket.getSprite(),
                 shoppingBasket.position.getX(),
                 shoppingBasket.position.getY(), null
         ));
 
+        //Tegner tiden
         game.getTid().forEach(tid -> graphics.drawImage(
                 tid.getSprite(),
-                tid.position.getX(), tid.position.getY(),null
+                tid.position.getX(),
+                tid.position.getY(),null
         ));
-
 
 
         graphics.dispose();
         bufferStartegy.show();
 
     }
-
-    /*public void paint(Graphics g){
-        Graphics2D g2D = (Graphics2D) g;
-        g2D.setFont(new Font());
-        g2D.drawString("DU ER EN VINDER", 300,300);
-
-    }*/
 
 
 

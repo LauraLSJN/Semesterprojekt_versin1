@@ -16,7 +16,6 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
         position = new Position(random.nextInt(680),0); //680, så der ikke placeres uden for display
         price = new Price();
         price.setValuePrice(random.nextInt(-10,10));
-        //price.setValuePrice(random.nextInt(100));
         textInImage = String.valueOf(getPrice().getValuePrice()); //Henter valuePrice
     }
 
