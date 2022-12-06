@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -29,7 +28,7 @@ public class Game {
         //Food og Player
         gameObject = new ArrayList<>();
         gameObject.add(new PlayerObject(new Player(input))); //playerobject skal være index 0 for at detection virker
-        dropFoodObjects();
+        addFoodObjects();
 
 
         /*
@@ -49,21 +48,27 @@ public class Game {
 
     }
 
-    public void dropFoodObjects(){
+    public void addFoodObjects(){
         //Tilføjer objekter til gameObject ArrayListen
    //     while (gameRunning) {
             gameObject.add(new FoodObjects());
-            gameObject.add(new FoodObjects());
-            gameObject.add(new FoodObjects());
+            //gameObject.add(new FoodObjects());
+            //gameObject.add(new FoodObjects());
             //gameObject.add(new FoodObjects());
             //gameObject.add(new FoodObjects());
 
-            if(shoppingBaskets.get(0).nowCollectedFood == shoppingBaskets.get(0).maxValue){
-             //   gameRunning = false;
-                System.out.println("hej");
+
+
+    }
+
+    public void dropFoodObjects(){
+        int randomTal = random.nextInt(2000); //Optimalt 5000
+        if (randomTal <= 25){
+            if(shoppingBaskets.get(0).nowCollectedFood != shoppingBaskets.get(0).maxValue){
+                addFoodObjects();
             }
-        //}
 
+        }
 
     }
 
@@ -85,9 +90,9 @@ public class Game {
 
                     shoppingBaskets.get(0).addCollectedFood(gameObject.get(x).getPrice().getValuePrice());
 
-                    if(shoppingBaskets.get(0).nowCollectedFood != shoppingBaskets.get(0).maxValue){
-                        dropFoodObjects();
-                    }
+                   // if(shoppingBaskets.get(0).nowCollectedFood != shoppingBaskets.get(0).maxValue){
+                     //   addFoodObjects();
+                    //}
 
                     System.out.println(gameObject.get(x).getPosition().getX());
                     //System.out.println(gameObject.get(x).toString());
@@ -111,9 +116,7 @@ public class Game {
                 System.out.println(gameObject.toString());
                 System.out.println("i er fjernet");
             }
-            if(gameObject.size() == 1){
-                dropFoodObjects();
-            }
+
         }
     }
 
@@ -122,11 +125,11 @@ public class Game {
         gameObject.forEach(gameObject -> gameObject.update());
         detectionOutOfDisplay();
         detection();
+        dropFoodObjects();
         shoppingBaskets.forEach(shoppingBasket -> shoppingBasket.update());
-
-
-
     }
+
+
 
 
     public void render(){

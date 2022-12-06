@@ -48,10 +48,6 @@ public class Display extends JFrame {
                 shoppingBasket.position.getY(), null
         ));
 
-
-
-
-
         graphics.dispose();
         bufferStartegy.show();
 

@@ -20,7 +20,7 @@ public class ShoppingBasket {
 
     public ShoppingBasket(){
         position = new Position(0,0);
-        this.maxValue = 100;
+        this.maxValue = 50;
         maxValueString = String.valueOf(maxValue);
         this.collectedFood = 0;
         this.oldCollectedFood = 0;
