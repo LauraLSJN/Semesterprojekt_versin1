@@ -141,7 +141,9 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         dropFoodObjects();
         shoppingBaskets.forEach(shoppingBasket -> shoppingBasket.update());
 
+
        // tid.forEach(tid -> tid.countdownTimer());
+        tid.forEach(tid -> tid.update());
 
     }
 

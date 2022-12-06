@@ -1,3 +1,5 @@
+import com.sun.tools.javac.Main;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.font.TextAttribute;
@@ -7,19 +9,25 @@ import java.text.AttributedString;
 import java.text.DecimalFormat;
 import java.util.Timer;
 
+import static java.lang.Thread.sleep;
+
 
 public class Tid {
 
     Position position;
     Timer timer;
-    int second = 0;
-    int minute = 3;
+    int minSecond;
+    int second;
+    int minute;
     String ddSecond;
     String ddMinute;
+    String ddMinSec;
     DecimalFormat ddFormat = new DecimalFormat("00");
+    DecimalFormat dcFormat = new DecimalFormat("00");
     Font font = new Font("Monospaced", Font.BOLD, 10);
     String textInImage;
     AttributedString attributedText;
+    Main main;
 
     int sec = 0;
     int min = 3;
@@ -31,14 +39,16 @@ public class Tid {
     public Tid(){
         position = new Position(700-100,0);
 
-        this.textInImage = "03:00";
-        second =0;
-        minute =3;
+        this.textInImage = "03:00:00";
+
+        this.minSecond= 0;
+        this.second =0;
+        this.minute =3;
         countdownTimer();
         //timer.start();
 
     }
-
+/*
 
     public void actionPerformed(ActionEvent e){
         sec--;
@@ -56,30 +66,59 @@ public class Tid {
        /* if(minute==0 && second==0) {
             timer.stop();
         }*/
-
+/*
     }
+    */
 
     public void update(){
 
+
+
+        //try {
+
+            minSecond--;
+
+            if(minSecond == -1){
+                minSecond = 59;
+                second--;
+            }
+            if (second == -1){
+                second = 59;
+                minute--;
+            }
+            ddSecond = ddFormat.format(second);
+            ddMinute = ddFormat.format(minute);
+            ddMinSec = dcFormat.format(minSecond);
+
+            this.textInImage = (ddMinute + ":" + ddSecond + ":" + ddMinSec );
+
+            /*
+            Thread.sleep(1000);
         second--;
+            Thread.sleep(1000);
         ddSecond = ddFormat.format(second);
         ddMinute = ddFormat.format(minute);
         this.textInImage = (ddMinute + ":" + ddSecond);
-
         if(second==-1) {
             second = 59;
+            Thread.sleep(1000);
             minute--;
+            Thread.sleep(1000);
             ddSecond = ddFormat.format(second);
             ddMinute = ddFormat.format(minute);
             this.textInImage = (ddMinute + ":" + ddSecond);
 
         }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
+
     }
 
     public void countdownTimer(){
 
 
-                second--;
+        second--;
                 ddSecond = ddFormat.format(second);
                 ddMinute = ddFormat.format(minute);
                 textInImage = (ddMinute + ":" + ddSecond);
@@ -90,6 +129,8 @@ public class Tid {
                     ddSecond = ddFormat.format(second);
                     ddMinute = ddFormat.format(minute);
                     textInImage = (ddMinute + ":" + ddSecond);
+
+
 
 
 
