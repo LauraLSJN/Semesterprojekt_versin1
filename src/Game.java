@@ -68,6 +68,13 @@ public class Game {
         if (randomTal <= 25){
             if(shoppingBaskets.get(0).nowCollectedFood != shoppingBaskets.get(0).maxValue){
                 addFoodObjects();
+            } else {
+                for (int i = 1; i < gameObject.size(); i++) {
+                    gameObject.remove(i);
+                    //text.get(0);
+
+
+                }
             }
 
         }
@@ -113,7 +120,7 @@ public class Game {
 
     public void detectionOutOfDisplay(){
         for (int i = 1; i < gameObject.size(); i++) {
-            if(gameObject.get(i).getPosition().getY() >= gameObject.get(0).getPosition().getY()){
+            if(gameObject.get(i).getPosition().getY() >= gameObject.get(0).getPosition().getY()+20){
                 gameObject.remove(i);
                 System.out.println(gameObject.toString());
                 System.out.println("i er fjernet");

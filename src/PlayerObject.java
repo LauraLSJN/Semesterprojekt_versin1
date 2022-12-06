@@ -8,7 +8,7 @@ public class PlayerObject extends GameObject {
     public PlayerObject(Controller controller) {
         super();
         this.controller = controller;
-        position = new Position(350,400); //Starter på denne position
+        position = new Position(350,480); //Starter på denne position
     }
 
     @Override
