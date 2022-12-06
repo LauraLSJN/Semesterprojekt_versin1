@@ -38,9 +38,7 @@ public class Tid {
 
     public Tid(){
         position = new Position(700-100,0);
-
         this.textInImage = "03:00:00";
-
         this.minSecond= 0;
         this.second =0;
         this.minute =3;
