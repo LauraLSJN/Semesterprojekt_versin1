@@ -1,10 +1,16 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class Display extends JFrame {
 
     private Canvas canvas;
+    Image img = Toolkit.getDefaultToolkit().getImage("/Users/laura/Desktop/shoppingMarket.jpg");
+
 
     public Display(int width, int height, Input input){
         setTitle("MyFoodSolver");
@@ -12,6 +18,7 @@ public class Display extends JFrame {
         setResizable(false);
 
         canvas = new Canvas();
+        //canvas.setBackground(Color.GREEN);
         canvas.setPreferredSize(new Dimension(width, height));
         canvas.setFocusable(false);
         add(canvas);
@@ -28,8 +35,17 @@ public class Display extends JFrame {
         BufferStrategy bufferStartegy = canvas.getBufferStrategy();
         Graphics graphics = bufferStartegy.getDrawGraphics();
 
-        graphics.fillRect(0, 0, canvas.getWidth(),canvas.getHeight());
+        graphics.drawImage(img, 0, 0,700,500,null);
+
+        //graphics.
+        //graphics.drawImage()
+        //canvas.setBackground(Color.GREEN);
+
+
+        //graphics.fillRect(0, 0, canvas.getWidth(),canvas.getHeight());
+        //graphics.drawString("HEJ",300,300);
         //game.getShoppingBasket2();
+
 
 
         //Henter gameObjects (FoodObjcts & PlayerObjects) og tegner det
@@ -48,10 +64,19 @@ public class Display extends JFrame {
                 shoppingBasket.position.getY(), null
         ));
 
+
+
         graphics.dispose();
         bufferStartegy.show();
 
     }
+
+    /*public void paint(Graphics g){
+        Graphics2D g2D = (Graphics2D) g;
+        g2D.setFont(new Font());
+        g2D.drawString("DU ER EN VINDER", 300,300);
+
+    }*/
 
 
 

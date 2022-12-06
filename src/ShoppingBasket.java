@@ -23,7 +23,7 @@ public class ShoppingBasket {
 
     public ShoppingBasket(){
         position = new Position(0,0);
-        this.maxValue = 50;
+        this.maxValue = 5;
         maxValueString = String.valueOf(maxValue);
         this.collectedFood = 0;
         this.oldCollectedFood = 0;
@@ -77,7 +77,7 @@ public class ShoppingBasket {
     public Image getSprite() {
         BufferedImage image = new BufferedImage(100, 50, BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = image.createGraphics();
-        graphics.setColor(Color.WHITE);
+        graphics.setColor(Color.BLACK);
         graphics.fillRect(rectx, recty, rectWidth, rectHeight);
         setText(graphics, maxValueString, rectx+fontSize,recty+fontSize);
         setText(graphics,String.valueOf(nowCollectedFood),rectx+fontSize,recty+fontSize+15);
@@ -90,7 +90,7 @@ public class ShoppingBasket {
     public void setText(Graphics2D graphics, String text, int x, int y){
         attributedText = new AttributedString(text);
         attributedText.addAttribute(TextAttribute.FONT, font); //Font
-        attributedText.addAttribute(TextAttribute.FOREGROUND, Color.BLACK); //Sættes til foreground + farve = hvid
+        attributedText.addAttribute(TextAttribute.FOREGROUND, Color.WHITE); //Sættes til foreground + farve = hvid
         graphics.drawString(attributedText.getIterator(), x, y);
 
         //graphics.drawString(attributedText.getIterator(), rectx+fontSize, recty+fontSize); //Placeres i billede -> X og y kordinat er i henhold til image

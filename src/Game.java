@@ -6,11 +6,12 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     private Display display;
     private List<GameObject> gameObject; //ArrayList af Objekter = GameObject
     private List<ShoppingBasket> shoppingBaskets;
+    private List<Text> text;
     private Input input; //Input fra brugeren
     private int width = 700;
     private int height = 500;
-    private boolean gameRunning = true;
     Random random = new Random();
+
 
 
 
@@ -30,6 +31,9 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         gameObject = new ArrayList<>();
         gameObject.add(new PlayerObject(new Player(input))); //playerobject skal være index 0 for at detection virker
         addFoodObjects();
+
+        text = new ArrayList<>();
+        text.add(new Text());
 
 
         /*
@@ -51,22 +55,26 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
 
     public void addFoodObjects(){
         //Tilføjer objekter til gameObject ArrayListen
-
             gameObject.add(new FoodObjects());
             //gameObject.add(new FoodObjects());
             //gameObject.add(new FoodObjects());
             //gameObject.add(new FoodObjects());
             //gameObject.add(new FoodObjects());
 
-
-
     }
 
     public void dropFoodObjects(){
-        int randomTal = random.nextInt(2000); //Optimalt 5000
+        int randomTal = random.nextInt(2000);
         if (randomTal <= 25){
             if(shoppingBaskets.get(0).nowCollectedFood != shoppingBaskets.get(0).maxValue){
                 addFoodObjects();
+            } else {
+                for (int i = 1; i < gameObject.size(); i++) {
+                    gameObject.remove(i);
+                    //text.get(0);
+
+
+                }
             }
 
         }
@@ -112,7 +120,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
 
     public void detectionOutOfDisplay(){
         for (int i = 1; i < gameObject.size(); i++) {
-            if(gameObject.get(i).getPosition().getY() >= gameObject.get(0).getPosition().getY()){
+            if(gameObject.get(i).getPosition().getY() >= gameObject.get(0).getPosition().getY()+20){
                 gameObject.remove(i);
                 System.out.println(gameObject.toString());
                 System.out.println("i er fjernet");
