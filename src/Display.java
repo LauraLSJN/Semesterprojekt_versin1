@@ -9,7 +9,8 @@ import java.io.IOException;
 public class Display extends JFrame {
 
     private Canvas canvas;
-    private BufferedImage img = null;
+    Image img = Toolkit.getDefaultToolkit().getImage("/Users/laura/Desktop/shoppingMarket.jpg");
+
 
     public Display(int width, int height, Input input){
         setTitle("MyFoodSolver");
@@ -28,26 +29,23 @@ public class Display extends JFrame {
 
         setLocationRelativeTo(null);
         setVisible(true);
-        /*try
-        {
-            img = ImageIO.read( new File("MyPicture.jpg" ));
-        }
-        catch ( IOException exc )
-        {
-            //TODO: Handle exception.
-        }*/
     }
 
     public void render(Game game){
         BufferStrategy bufferStartegy = canvas.getBufferStrategy();
         Graphics graphics = bufferStartegy.getDrawGraphics();
-        //graphics.drawImage( img, 400, 400, this );
+
+        graphics.drawImage(img, 0, 0,700,500,null);
+
         //graphics.
         //graphics.drawImage()
         //canvas.setBackground(Color.GREEN);
 
-    graphics.fillRect(0, 0, canvas.getWidth(),canvas.getHeight());
+
+        //graphics.fillRect(0, 0, canvas.getWidth(),canvas.getHeight());
+        //graphics.drawString("HEJ",300,300);
         //game.getShoppingBasket2();
+
 
 
         //Henter gameObjects (FoodObjcts & PlayerObjects) og tegner det
@@ -73,6 +71,13 @@ public class Display extends JFrame {
 
 
     }
+
+    /*public void paint(Graphics g){
+        Graphics2D g2D = (Graphics2D) g;
+        g2D.setFont(new Font());
+        g2D.drawString("DU ER EN VINDER", 300,300);
+
+    }*/
 
 
 }
