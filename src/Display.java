@@ -13,6 +13,7 @@ public class Display extends JFrame {
     //Anna sti:
     //Chris sti:
     //Caro sti:
+    //Laura sti: /Users/laura/Desktop/shoppingMarket.jpg
 
 
     public Display(int width, int height, Input input){
