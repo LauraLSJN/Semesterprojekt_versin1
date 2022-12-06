@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class FoodObjects extends GameObject { //globale variabler som vi bruger
     Random random = new Random();
-    Font font = new Font("Monospaced", Font.BOLD, 10);
+    Font font = new Font("Monospaced", Font.BOLD, 15);
     String textInImage;
     AttributedString attributedText;
 
@@ -36,10 +36,10 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
 
     @Override
     public Image getSprite() {
-        BufferedImage image = new BufferedImage(size.getWidth(),size.getHeight(), BufferedImage.TYPE_INT_RGB);
+        BufferedImage image = new BufferedImage(size.getGameObjectWidth(),size.getGameObjectHeight(), BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = image.createGraphics();
         graphics.setColor(getFarve().randomColor);
-        graphics.fillRect(0, 0, size.getWidth(), size.getHeight());
+        graphics.fillRect(0, 0, size.getGameObjectWidth(), size.getGameObjectHeight());
         setText(graphics);
         graphics.dispose();
         return image;
