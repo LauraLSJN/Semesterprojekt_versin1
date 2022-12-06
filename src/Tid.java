@@ -23,7 +23,6 @@ public class Tid {
     String ddMinute;
     String ddMinSec;
     DecimalFormat ddFormat = new DecimalFormat("00");
-    DecimalFormat dcFormat = new DecimalFormat("00");
     Font font = new Font("Monospaced", Font.BOLD, 10);
     String textInImage;
     AttributedString attributedText;
@@ -44,7 +43,7 @@ public class Tid {
         this.minSecond= 0;
         this.second =0;
         this.minute =3;
-        countdownTimer();
+     //   countdownTimer();
         //timer.start();
 
     }
@@ -73,9 +72,6 @@ public class Tid {
     public void update(){
 
 
-
-        //try {
-
             minSecond--;
 
             if(minSecond == -1){
@@ -88,30 +84,11 @@ public class Tid {
             }
             ddSecond = ddFormat.format(second);
             ddMinute = ddFormat.format(minute);
-            ddMinSec = dcFormat.format(minSecond);
+            ddMinSec = ddFormat.format(minSecond);
 
             this.textInImage = (ddMinute + ":" + ddSecond + ":" + ddMinSec );
 
-            /*
-            Thread.sleep(1000);
-        second--;
-            Thread.sleep(1000);
-        ddSecond = ddFormat.format(second);
-        ddMinute = ddFormat.format(minute);
-        this.textInImage = (ddMinute + ":" + ddSecond);
-        if(second==-1) {
-            second = 59;
-            Thread.sleep(1000);
-            minute--;
-            Thread.sleep(1000);
-            ddSecond = ddFormat.format(second);
-            ddMinute = ddFormat.format(minute);
-            this.textInImage = (ddMinute + ":" + ddSecond);
 
-        }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
 
     }
 
