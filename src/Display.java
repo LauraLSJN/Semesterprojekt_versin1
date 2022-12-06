@@ -10,6 +10,10 @@ public class Display extends JFrame {
 
     private Canvas canvas;
     Image img = Toolkit.getDefaultToolkit().getImage("/Users/laura/Desktop/shoppingMarket.jpg"); //Erstat stigen, men din egen sti
+    //Anna sti:
+    //Chris sti:
+    //Caro sti:
+    //Laura sti: /Users/laura/Desktop/shoppingMarket.jpg
 
 
     public Display(int width, int height, Input input){
