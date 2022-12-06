@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Display extends JFrame {
 
     private Canvas canvas;
-    Image img = Toolkit.getDefaultToolkit().getImage("/Users/christinewulffeld/Desktop/shoppingMarket.jpg");
+    Image img = Toolkit.getDefaultToolkit().getImage("/Users/laura/Desktop/shoppingMarket.jpg");
 
 
     public Display(int width, int height, Input input){
