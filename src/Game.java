@@ -11,10 +11,13 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     private int width = 700;
     private int height = 500;
     Random random = new Random();
+    Size size;
 
     public Game() {
         input = new Input();
         display = new Display(width, height, input);//aendret fra w h Skærmstørrelse 700x500 x: 700, y:500
+        //size = new Size(20,20);
+        size = new Size();
 
         //Tid
         tid = new ArrayList<>();
@@ -63,12 +66,12 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     //Metode til detection af hvorvidt firkanterne på displayet rammer hinanden
     public void detection() {
         for (int x = 1; x < gameObject.size(); x++) {
-            if ((gameObject.get(x).getPosition().getX() >= gameObject.get(0).getPosition().getX() - 15)
-                    && (gameObject.get(x).getPosition().getX() <= gameObject.get(0).getPosition().getX() + 35)
-                    && (gameObject.get(x).getPosition().getY() + 20 >= gameObject.get(0).getPosition().getY())
-                    && (gameObject.get(x).getPosition().getY() + 20 <= gameObject.get(0).getPosition().getY() + 30)
-                    && (gameObject.get(x).getPosition().getX() + 20 >= gameObject.get(0).getPosition().getX() - 15)
-                    && (gameObject.get(x).getPosition().getX() + 20 <= gameObject.get(0).getPosition().getX() + 35)
+            if ((gameObject.get(x).getPosition().getX() >= (gameObject.get(0).getPosition().getX() - 30))
+                    && (gameObject.get(x).getPosition().getX() <= (gameObject.get(0).getPosition().getX() + size.getGameObjectWidth() + 20))
+                    && ((gameObject.get(x).getPosition().getY() + size.getGameObjectHeight()) >= gameObject.get(0).getPosition().getY())
+                    && ((gameObject.get(x).getPosition().getY() + size.getGameObjectHeight()) <= (gameObject.get(0).getPosition().getY() + size.getGameObjectHeight() + 20))
+                    && ((gameObject.get(x).getPosition().getX() + size.getGameObjectWidth()) >= (gameObject.get(0).getPosition().getX() - 35))
+                    && ((gameObject.get(x).getPosition().getX() + size.getGameObjectWidth()) <= (gameObject.get(0).getPosition().getX() + size.getGameObjectWidth() + 30))
             ) {
 
                 //SET
@@ -102,7 +105,6 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         detectionOutOfDisplay();
         detection();
         dropFoodObjects();
-        //shoppingBaskets.forEach(shoppingBasket -> shoppingBasket.update());
         tid.forEach(tid -> tid.update());
     }
 

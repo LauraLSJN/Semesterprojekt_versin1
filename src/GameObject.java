@@ -8,7 +8,16 @@ public abstract class GameObject {
     protected Price price;
 
     public GameObject(){
-        size = new Size(20,20); //Størrelse på firkanter
+        //size = new Size(20,20);
+       // size.setGameObjectWidth(20);
+       // size.setGameObjectHeight(20);
+        size = new Size();
+
+
+        //size = new Size(20,20);
+        //size.setGameObjectHeight(20);
+        //size.setGameObjectWidth(20);
+        //size = new Size(20,20); //Størrelse på firkanter
         randomColor = new Farve();
     }
 

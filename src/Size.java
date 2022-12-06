@@ -1,25 +1,35 @@
 public class Size {
-    public int width;
-    public int height;
 
-    public Size(int width, int height) {
-        this.width = width;
-        this.height = height;
+
+    private int gameObjectWidth;
+    private int gameObjectHeight;
+
+
+    public Size (){
+        this.gameObjectHeight = 30;
+        this.gameObjectWidth= 30;
     }
 
-    public int getWidth() {
-        return width;
+    /*public Size(int height, int width) { //int width, int height
+        this.gameObjectWidth = width;
+        this.gameObjectHeight = height;
+
+    }*/
+
+    public int getGameObjectWidth() {
+        return gameObjectWidth;
     }
 
-    public int getHeight() {
-        return height;
+    public void setGameObjectWidth(int gameObjectWidth) {
+        this.gameObjectWidth = gameObjectWidth;
     }
 
-    public void setWidth(int width) {
-        this.width = width;
+    public int getGameObjectHeight() {
+        return gameObjectHeight;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    public void setGameObjectHeight(int gameObjectHeight) {
+        this.gameObjectHeight = gameObjectHeight;
     }
+
 }
