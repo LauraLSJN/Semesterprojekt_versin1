@@ -1,10 +1,15 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class Display extends JFrame {
 
     private Canvas canvas;
+    private BufferedImage img = null;
 
     public Display(int width, int height, Input input){
         setTitle("MyFoodSolver");
@@ -12,6 +17,7 @@ public class Display extends JFrame {
         setResizable(false);
 
         canvas = new Canvas();
+        //canvas.setBackground(Color.GREEN);
         canvas.setPreferredSize(new Dimension(width, height));
         canvas.setFocusable(false);
         add(canvas);
@@ -22,13 +28,25 @@ public class Display extends JFrame {
 
         setLocationRelativeTo(null);
         setVisible(true);
+        /*try
+        {
+            img = ImageIO.read( new File("MyPicture.jpg" ));
+        }
+        catch ( IOException exc )
+        {
+            //TODO: Handle exception.
+        }*/
     }
 
     public void render(Game game){
         BufferStrategy bufferStartegy = canvas.getBufferStrategy();
         Graphics graphics = bufferStartegy.getDrawGraphics();
+        //graphics.drawImage( img, 400, 400, this );
+        //graphics.
+        //graphics.drawImage()
+        //canvas.setBackground(Color.GREEN);
 
-        graphics.fillRect(0, 0, canvas.getWidth(),canvas.getHeight());
+    graphics.fillRect(0, 0, canvas.getWidth(),canvas.getHeight());
         //game.getShoppingBasket2();
 
 
@@ -47,6 +65,8 @@ public class Display extends JFrame {
                 shoppingBasket.position.getX(),
                 shoppingBasket.position.getY(), null
         ));
+
+
 
         graphics.dispose();
         bufferStartegy.show();

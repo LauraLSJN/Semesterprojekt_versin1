@@ -6,11 +6,12 @@ public class Game {
     private Display display;
     private List<GameObject> gameObject; //ArrayList af Objekter = GameObject
     private List<ShoppingBasket> shoppingBaskets;
+    private List<Text> text;
     private Input input; //Input fra brugeren
     private int width = 700;
     private int height = 500;
-    private boolean gameRunning = true;
     Random random = new Random();
+
 
 
 
@@ -30,6 +31,9 @@ public class Game {
         gameObject = new ArrayList<>();
         gameObject.add(new PlayerObject(new Player(input))); //playerobject skal være index 0 for at detection virker
         addFoodObjects();
+
+        text = new ArrayList<>();
+        text.add(new Text());
 
 
         /*
@@ -51,19 +55,16 @@ public class Game {
 
     public void addFoodObjects(){
         //Tilføjer objekter til gameObject ArrayListen
-
             gameObject.add(new FoodObjects());
             //gameObject.add(new FoodObjects());
             //gameObject.add(new FoodObjects());
             //gameObject.add(new FoodObjects());
             //gameObject.add(new FoodObjects());
 
-
-
     }
 
     public void dropFoodObjects(){
-        int randomTal = random.nextInt(2000); //Optimalt 5000
+        int randomTal = random.nextInt(2000);
         if (randomTal <= 25){
             if(shoppingBaskets.get(0).nowCollectedFood != shoppingBaskets.get(0).maxValue){
                 addFoodObjects();
