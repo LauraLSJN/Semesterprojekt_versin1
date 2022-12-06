@@ -6,6 +6,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     private Display display;
     private List<GameObject> gameObject; //ArrayList af Objekter = GameObject
     private List<ShoppingBasket> shoppingBaskets;
+    private List<Tid> tid;
     private List<Text> text;
     private Input input; //Input fra brugeren
     private int width = 700;
@@ -23,6 +24,9 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         display = new Display(width,height, input);//aendret fra w h Skærmstørrelse 700x500 x: 700, y:500
         //shoppingBasket2 = new ShoppingBasket2();
         //Shoppingkurven
+        tid = new ArrayList<>();
+        tid.add(new Tid());
+
         shoppingBaskets = new ArrayList<>();
         shoppingBaskets.add(new ShoppingBasket());
         System.out.println("Test");
@@ -151,6 +155,10 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
 
     public List<ShoppingBasket> getShoppingBaskets() {
         return shoppingBaskets;
+    }
+
+    public List<Tid> getTid() {
+        return tid;
     }
 
     /*public ShoppingBasket2 getShoppingBasket2() {
