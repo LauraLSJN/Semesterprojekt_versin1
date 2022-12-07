@@ -10,12 +10,16 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
     String textInImage;
     AttributedString attributedText;
     int speed = 1; //Evt. getter og setter
+    Farve farve;
+    private Color colorBoks;
 
     //Konstruktør -> Sætter position
     public FoodObjects(){ //herunder bliver værdierne som vi gerne vil have blive sat
+        farve = new Farve();
         position = new Position(random.nextInt(size.getDisplayWidth()- size.getGameObjectWidth()),0 ); //-gameObject size, så de ikke placeres udenfor display
         price.setValuePrice(random.nextInt(price.getMinPrice(),price.getMaxPrice()));
         textInImage = String.valueOf(getPrice().getValuePrice()); //Henter valuePrice
+        setColor();
     }
 
 
@@ -37,13 +41,7 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
     public Image getSprite() {
         BufferedImage image = new BufferedImage(size.getGameObjectWidth(),size.getGameObjectHeight(), BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = image.createGraphics();
-
-        if(getPrice().getValuePrice() >= 0){
-            graphics.setColor(Color.green);
-        } else{
-            graphics.setColor(Color.red);
-        }
-
+        graphics.setColor(colorBoks);
         graphics.fillRect(0, 0, size.getGameObjectWidth(), size.getGameObjectHeight());
         setText(graphics);
         graphics.dispose();
@@ -58,6 +56,14 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
         attributedText.addAttribute(TextAttribute.FOREGROUND, Color.WHITE); //Sættes til foreground + farve = hvid
         graphics.drawString(attributedText.getIterator(), 2, (size.getGameObjectHeight()/2)+5); //Placeres i billede -> X og y kordinat er i henhold til image
 
+    }
+
+    public void setColor(){
+        if(getPrice().getValuePrice() >= 0){
+            this.colorBoks = farve.plusFarve;
+        } else{
+            this.colorBoks = farve.minusFarve;
+        }
     }
 
     //Printer arrayList til konsollen -> Anvendes til tjek
