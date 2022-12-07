@@ -68,18 +68,20 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
                 for (int i = 1; i < gameObject.size(); i++) {
                     gameObject.remove(i); //Fjerne dem der ikke er ramt fra ArrayListe
                     level.setNextLevel(1);
-                removeAllFoodObjects();
-                tid.get(0).stopTid();
+                    // removeAllFoodObjects();
+                    tid.get(0).stopTid();
+                }
             }
         }
     }
 
+        /*
+        //vi kunne lave metode her i stedet for else.
     public void removeAllFoodObjects(){
         for (int i = 1; i < gameObject.size(); i++) {
             gameObject.remove(i); //Fjerne dem der ikke er ramt fra ArrayListe
-
         }
-    }
+    }*/
 
     //Metode til detection af hvorvidt firkanterne på displayet rammer hinanden
     public void detection() {
