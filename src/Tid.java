@@ -3,6 +3,8 @@ import java.awt.font.TextAttribute;
 import java.awt.image.BufferedImage;
 import java.text.AttributedString;
 import java.text.DecimalFormat;
+import javax.swing.Timer;
+
 
 
 public class Tid {
@@ -11,6 +13,7 @@ public class Tid {
     int minSecond;
     int second;
     int minute;
+    Timer timer;
     String ddSecond;
     String ddMinute;
     String ddMinSec;
@@ -19,6 +22,7 @@ public class Tid {
     int xText = 15;
     int width = 100;
     int height = 50;
+
 
     //TEKST
     Font font = new Font("Monospaced", Font.BOLD, fontSize);
@@ -32,32 +36,40 @@ public class Tid {
         position = new Position(size.getDisplayWidth() - width, 0);
         this.textInImage = "03:00:00";
         this.minSecond = 0;
-        this.second = 0;
-        this.minute = 3;
+        this.second = 10;
+        this.minute = 0;
+        //update();
+        //timer.start();
+
+
     }
 
-
     public void update() {
-        minSecond--;
-        if (minSecond == -1) {
-            minSecond = 59;
-            second--;
+
+        if(minSecond == 0 && minute == 0 && second == 0) {
+            minSecond = 0;
+            minute = 0;
+            second = 0;
+        } else {
+            minSecond--;
+            if (minSecond == -1) {
+                minSecond = 59;
+                second--;
+            }
+            if (second == -1) {
+                second = 59;
+                minute--;
+            }
         }
-        if (second == -1) {
-            second = 59;
-            minute--;
-        }
+
         ddSecond = ddFormat.format(second);
         ddMinute = ddFormat.format(minute);
         ddMinSec = ddFormat.format(minSecond);
 
         this.textInImage = (ddMinute + ":" + ddSecond + ":" + ddMinSec);
 
-        /**
-         * Mangler metode til når timer rammer 00:00:00, spillet skal stoppes.
-         */
+            }
 
-    }
 
     public Image getSprite() {
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
