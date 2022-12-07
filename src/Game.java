@@ -1,6 +1,10 @@
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.text.AttributedString;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.awt.font.TextAttribute;
 
 public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vores spil. Det vigtigste her er de to lister
     private Display display;
@@ -11,7 +15,17 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     Random random = new Random();
     Size size;
 
+    AttributedString attributedText;
+    Font font = new Font("Monospaced", Font.BOLD, 15);
+    Level level;
+
+
+    boolean test = false;
+
     public Game() {
+        this.test = false;
+        level = new Level();
+
         input = new Input();
         size = new Size();
         display = new Display(size.getDisplayWidth(), size.getDisplayHeight(), input);//aendret fra w h Skærmstørrelse 700x500 x: 700, y:500
@@ -53,24 +67,36 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
             } else {
                 for (int i = 1; i < gameObject.size(); i++) {
                     gameObject.remove(i); //Fjerne dem der ikke er ramt fra ArrayListe
-
+                    level.setNextLevel(1);
+                    // removeAllFoodObjects();
+                    tid.get(0).stopTid();
                 }
             }
-
         }
     }
 
+        /*
+        //vi kunne lave metode her i stedet for else.
+    public void removeAllFoodObjects(){
+        for (int i = 1; i < gameObject.size(); i++) {
+            gameObject.remove(i); //Fjerne dem der ikke er ramt fra ArrayListe
+        }
+    }*/
+
     //Metode til detection af hvorvidt firkanterne på displayet rammer hinanden
     public void detection() {
-        for (int x = 1; x < gameObject.size(); x++) {
-            if ((gameObject.get(x).getPosition().getX() >= (gameObject.get(0).getPosition().getX() - 30))
-                    && (gameObject.get(x).getPosition().getX() <= (gameObject.get(0).getPosition().getX() + size.getGameObjectWidth() + 20))
-                    && ((gameObject.get(x).getPosition().getY() + size.getGameObjectHeight()) >= gameObject.get(0).getPosition().getY())
-                    && ((gameObject.get(x).getPosition().getY() + size.getGameObjectHeight()) <= (gameObject.get(0).getPosition().getY() + size.getGameObjectHeight() + 20))
-                    && ((gameObject.get(x).getPosition().getX() + size.getGameObjectWidth()) >= (gameObject.get(0).getPosition().getX() - 35))
-                    && ((gameObject.get(x).getPosition().getX() + size.getGameObjectWidth()) <= (gameObject.get(0).getPosition().getX() + size.getGameObjectWidth() + 30))
-            ) {
+       if (test){
+           test = false;
+       }
 
+        for (int x = 1; x < gameObject.size(); x++) {
+            if ((gameObject.get(x).getPosition().getX() >= (gameObject.get(0).getPosition().getX() - 30)) // food x >= player x - 30
+                    && (gameObject.get(x).getPosition().getX() <= (gameObject.get(0).getPosition().getX() + size.getPlayerObjectWidth() + 20)) //food x <= player x+ size + 20
+                    && ((gameObject.get(x).getPosition().getY() + size.getFoodObjectHeight()) >= gameObject.get(0).getPosition().getY()+5) // food y + size >= player y +5
+                    && ((gameObject.get(x).getPosition().getY() + size.getFoodObjectHeight()) <= (gameObject.get(0).getPosition().getY() + size.getPlayerObjectHeight() + 20)) //food y <= player y + size + 20
+                    && ((gameObject.get(x).getPosition().getX() + size.getFoodObjectWidth()) >= (gameObject.get(0).getPosition().getX() - 35)) //food x + size >= player x -35
+                    && ((gameObject.get(x).getPosition().getX() + size.getFoodObjectWidth()) <= (gameObject.get(0).getPosition().getX() + size.getFoodObjectWidth() + 60)) //food x + size <= player x + size + 60
+            ) {
                 //SET
                 shoppingBaskets.get(0).setCollectedFood(gameObject.get(x).getPrice().getValuePrice());
                 //ADD
@@ -82,16 +108,18 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
 
                 gameObject.remove(x); //Fjerner objektet -> Der bliver ramt
                 System.out.println(getGameObject()); //Print til konsol -> Se om objektet er fjernet fra arraylist
+               setTest(true);
+               // this.test = true;
 
             }
+
         }
     }
 
     public void detectionOutOfDisplay() {
         for (int i = 1; i < gameObject.size(); i++) {
-            if (gameObject.get(i).getPosition().getY() >= gameObject.get(0).getPosition().getY() + 20) {
+            if (gameObject.get(i).getPosition().getY() >= gameObject.get(0).getPosition().getY()+ size.getPlayerObjectHeight()) { //food y >= player y + player height
                 gameObject.remove(i);
-                //System.out.println(gameObject.toString()); //Anvendes til kontrol
             }
 
         }
@@ -103,6 +131,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         detection();
         dropFoodObjects();
         tid.forEach(tid -> tid.update());
+        level.detectLevel();
     }
 
     public void render() {
@@ -119,6 +148,33 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
 
     public List<Tid> getTid() {
         return tid;
+    }
+
+    public Image getSprite() {
+        BufferedImage image = new BufferedImage(100, 50, BufferedImage.TYPE_INT_RGB);
+        Graphics2D graphics = image.createGraphics();
+        graphics.setColor(Color.BLACK);
+        graphics.fillRect(100, 100, 100, 100);
+        setText(graphics, "TEST", 100, 100);
+        graphics.dispose();
+        return image;
+    }
+
+    //Price i firkanten
+    //https://www.baeldung.com/java-add-text-to-image
+    public void setText(Graphics2D graphics, String text, int x, int y) {
+        attributedText = new AttributedString(text);
+        attributedText.addAttribute(TextAttribute.FONT, font); //Font
+        attributedText.addAttribute(TextAttribute.FOREGROUND, Color.BLACK); //Sættes til foreground + farve = hvid
+        graphics.drawString(attributedText.getIterator(), x, y); //Placeres i billede -> X og y kordinat er i henhold til image
+    }
+
+    public boolean isTest() {
+        return test;
+    }
+
+    public void setTest(boolean test) {
+        this.test = test;
     }
 
 

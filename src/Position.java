@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class Position {
     private int x;
     private int y;
@@ -32,7 +30,7 @@ public class Position {
     }
 
     public void setX(int x) {
-        if (x>= minX && x<=maxX-size.getGameObjectWidth()){ //-gameObject size, således at firkanten ikke ryger ud fra display
+        if (x>= minX && x<=maxX-size.getFoodObjectWidth()){ //-gameObject size, således at firkanten ikke ryger ud fra display
         this.x = x;
         }else{
             System.out.println("Ude for rammen"); //Kontrol til terminal

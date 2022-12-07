@@ -9,17 +9,20 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
     Font font = new Font("Monospaced", Font.BOLD, 15);
     String textInImage;
     AttributedString attributedText;
-    int speed = 1; //Evt. getter og setter
+
+    int speed; //Evt. getter og setter
     Farve farve;
     private Color colorBoks;
 
     //Konstruktør -> Sætter position
     public FoodObjects(){ //herunder bliver værdierne som vi gerne vil have blive sat
         farve = new Farve();
-        position = new Position(random.nextInt(size.getDisplayWidth()- size.getGameObjectWidth()),0 ); //-gameObject size, så de ikke placeres udenfor display
-        price.setValuePrice(random.nextInt(price.getMinPrice(),price.getMaxPrice()));
+        position = new Position(random.nextInt(size.getDisplayWidth()- size.getFoodObjectWidth()),0 ); //-gameObject size, så de ikke placeres udenfor display
+        //price.setValuePrice(random.nextInt(price.getMinPrice(),price.getMaxPrice()));
+        price.setValuePrice(5);
         textInImage = String.valueOf(getPrice().getValuePrice()); //Henter valuePrice
         setColor();
+        this.speed = 1;
     }
 
 
@@ -29,6 +32,7 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
         int oldPos = position.getY();
         //Set metode til at sætte den ny y-koordinat
         position.setY(oldPos+speed);
+        //System.out.println("SPEED: " + speed);
 
         //Print af FoodObjects position
         //System.out.println("Position FoodObjects");
@@ -39,10 +43,10 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
 
     @Override
     public Image getSprite() {
-        BufferedImage image = new BufferedImage(size.getGameObjectWidth(),size.getGameObjectHeight(), BufferedImage.TYPE_INT_RGB);
+        BufferedImage image = new BufferedImage(size.getFoodObjectWidth(),size.getFoodObjectHeight(), BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = image.createGraphics();
         graphics.setColor(colorBoks);
-        graphics.fillRect(0, 0, size.getGameObjectWidth(), size.getGameObjectHeight());
+        graphics.fillRect(0, 0, size.getFoodObjectWidth(), size.getFoodObjectHeight());
         setText(graphics);
         graphics.dispose();
         return image;
@@ -54,15 +58,15 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
         attributedText = new AttributedString(textInImage);
         attributedText.addAttribute(TextAttribute.FONT, font); //Font
         attributedText.addAttribute(TextAttribute.FOREGROUND, Color.WHITE); //Sættes til foreground + farve = hvid
-        graphics.drawString(attributedText.getIterator(), 2, (size.getGameObjectHeight()/2)+5); //Placeres i billede -> X og y kordinat er i henhold til image
+        graphics.drawString(attributedText.getIterator(), 2, (size.getFoodObjectHeight()/2)+5); //Placeres i billede -> X og y kordinat er i henhold til image
 
     }
 
     public void setColor(){
-        if(getPrice().getValuePrice() >= 0){
-            this.colorBoks = farve.plusFarve;
+        if(getPrice().getValuePrice() >= 0){ //hvis prisen er lig eller mindre end 0
+            this.colorBoks = farve.plusFarve; //grøn farve
         } else{
-            this.colorBoks = farve.minusFarve;
+            this.colorBoks = farve.minusFarve; //rød farve
         }
     }
 
@@ -72,5 +76,9 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
         return "FoodObjects{" +
                 "price=" + price +
                 '}';
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 }
