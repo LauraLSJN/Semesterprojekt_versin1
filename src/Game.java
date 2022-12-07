@@ -1,6 +1,10 @@
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.text.AttributedString;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.awt.font.TextAttribute;
 
 public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vores spil. Det vigtigste her er de to lister
     private Display display;
@@ -10,8 +14,15 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     private Input input; //Input fra brugeren
     Random random = new Random();
     Size size;
+    AttributedString attributedText;
+    Font font = new Font("Monospaced", Font.BOLD, 15);
+
+
+    boolean test = false;
 
     public Game() {
+        this.test = false;
+
         input = new Input();
         size = new Size();
         display = new Display(size.getDisplayWidth(), size.getDisplayHeight(), input);//aendret fra w h Skærmstørrelse 700x500 x: 700, y:500
@@ -70,7 +81,6 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
                     && ((gameObject.get(x).getPosition().getX() + size.getGameObjectWidth()) >= (gameObject.get(0).getPosition().getX() - 35))
                     && ((gameObject.get(x).getPosition().getX() + size.getGameObjectWidth()) <= (gameObject.get(0).getPosition().getX() + size.getGameObjectWidth() + 30))
             ) {
-
                 //SET
                 shoppingBaskets.get(0).setCollectedFood(gameObject.get(x).getPrice().getValuePrice());
                 //ADD
@@ -82,14 +92,17 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
 
                 gameObject.remove(x); //Fjerner objektet -> Der bliver ramt
                 System.out.println(getGameObject()); //Print til konsol -> Se om objektet er fjernet fra arraylist
+               setTest(true);
+               // this.test = true;
 
             }
+
         }
     }
 
     public void detectionOutOfDisplay() {
         for (int i = 1; i < gameObject.size(); i++) {
-            if (gameObject.get(i).getPosition().getY() >= gameObject.get(0).getPosition().getY() + 20) {
+            if (gameObject.get(i).getPosition().getY() >= gameObject.get(0).getPosition().getY()+ size.getPlayerObjectHeight()) { //food y >= player y + player height
                 gameObject.remove(i);
                 //System.out.println(gameObject.toString()); //Anvendes til kontrol
             }
@@ -119,6 +132,33 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
 
     public List<Tid> getTid() {
         return tid;
+    }
+
+    public Image getSprite() {
+        BufferedImage image = new BufferedImage(100, 50, BufferedImage.TYPE_INT_RGB);
+        Graphics2D graphics = image.createGraphics();
+        graphics.setColor(Color.BLACK);
+        graphics.fillRect(100, 100, 100, 100);
+        setText(graphics, "TEST", 100, 100);
+        graphics.dispose();
+        return image;
+    }
+
+    //Price i firkanten
+    //https://www.baeldung.com/java-add-text-to-image
+    public void setText(Graphics2D graphics, String text, int x, int y) {
+        attributedText = new AttributedString(text);
+        attributedText.addAttribute(TextAttribute.FONT, font); //Font
+        attributedText.addAttribute(TextAttribute.FOREGROUND, Color.BLACK); //Sættes til foreground + farve = hvid
+        graphics.drawString(attributedText.getIterator(), x, y); //Placeres i billede -> X og y kordinat er i henhold til image
+    }
+
+    public boolean isTest() {
+        return test;
+    }
+
+    public void setTest(boolean test) {
+        this.test = test;
     }
 
 

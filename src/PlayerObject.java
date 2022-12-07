@@ -37,11 +37,11 @@ public class PlayerObject extends GameObject {
     public Image getSprite() {
         //BufferedImage image = new BufferedImage(size.getGameObjectWidth(), size.getGameObjectHeight(), BufferedImage.TYPE_INT_RGB);
         //BufferedImage image = new BufferedImage(60, 60, BufferedImage.TYPE_INT_RGB);
-        BufferedImage image = new BufferedImage(60, 60, BufferedImage.TYPE_INT_ARGB);
+        BufferedImage image = new BufferedImage(size.getPlayerObjectWidth(), size.getPlayerObjectHeight(), BufferedImage.TYPE_INT_ARGB);
 
 
         Graphics2D graphics = image.createGraphics();
-        graphics.drawImage(imgShoppingkurv,0,0,60,60,null);
+        graphics.drawImage(imgShoppingkurv,0,0,size.getPlayerObjectWidth(), size.getPlayerObjectHeight(),null);
 
         //graphics.drawImage(imgShoppingkurv,0,0,size.getGameObjectWidth(),size.getGameObjectHeight(),null);
         //graphics.setColor(Color.darkGray);

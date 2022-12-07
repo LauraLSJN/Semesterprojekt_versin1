@@ -1,34 +1,42 @@
 public class Size {
 
 
-    private int gameObjectWidth;
-    private int gameObjectHeight;
+    private int foodObjectWidth;
+    private int foodObjectHeight;
     private int displayWidth;
     private int displayHeight;
 
 
     public Size (){
-        this.gameObjectHeight = 30;
-        this.gameObjectWidth= 30;
+        this.foodObjectHeight = 30;
+        this.foodObjectWidth = 30;
         this.displayWidth = 700;
         this.displayHeight = 500;
     }
 
 
-    public int getGameObjectWidth() {
-        return gameObjectWidth;
+    public int getFoodObjectWidth() {
+        return foodObjectWidth;
     }
 
-    public void setGameObjectWidth(int gameObjectWidth) {
-        this.gameObjectWidth = gameObjectWidth;
+    public void setFoodObjectWidth(int foodObjectWidth) {
+        this.foodObjectWidth = foodObjectWidth;
     }
 
-    public int getGameObjectHeight() {
-        return gameObjectHeight;
+    public int getFoodObjectHeight() {
+        return foodObjectHeight;
     }
 
-    public void setGameObjectHeight(int gameObjectHeight) {
-        this.gameObjectHeight = gameObjectHeight;
+    public void setFoodObjectHeight(int foodObjectHeight) {
+        this.foodObjectHeight = foodObjectHeight;
+    }
+
+    public int getPlayerObjectWidth() {
+        return playerObjectWidth;
+    }
+
+    public int getPlayerObjectHeight() {
+        return playerObjectHeight;
     }
 
     public int getDisplayWidth() {

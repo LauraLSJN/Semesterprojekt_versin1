@@ -16,7 +16,7 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
     //Konstruktør -> Sætter position
     public FoodObjects(){ //herunder bliver værdierne som vi gerne vil have blive sat
         farve = new Farve();
-        position = new Position(random.nextInt(size.getDisplayWidth()- size.getGameObjectWidth()),0 ); //-gameObject size, så de ikke placeres udenfor display
+        position = new Position(random.nextInt(size.getDisplayWidth()- size.getFoodObjectWidth()),0 ); //-gameObject size, så de ikke placeres udenfor display
         price.setValuePrice(random.nextInt(price.getMinPrice(),price.getMaxPrice()));
         textInImage = String.valueOf(getPrice().getValuePrice()); //Henter valuePrice
         setColor();
@@ -39,10 +39,10 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
 
     @Override
     public Image getSprite() {
-        BufferedImage image = new BufferedImage(size.getGameObjectWidth(),size.getGameObjectHeight(), BufferedImage.TYPE_INT_RGB);
+        BufferedImage image = new BufferedImage(size.getFoodObjectWidth(),size.getFoodObjectHeight(), BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = image.createGraphics();
         graphics.setColor(colorBoks);
-        graphics.fillRect(0, 0, size.getGameObjectWidth(), size.getGameObjectHeight());
+        graphics.fillRect(0, 0, size.getFoodObjectWidth(), size.getFoodObjectHeight());
         setText(graphics);
         graphics.dispose();
         return image;
@@ -54,7 +54,7 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
         attributedText = new AttributedString(textInImage);
         attributedText.addAttribute(TextAttribute.FONT, font); //Font
         attributedText.addAttribute(TextAttribute.FOREGROUND, Color.WHITE); //Sættes til foreground + farve = hvid
-        graphics.drawString(attributedText.getIterator(), 2, (size.getGameObjectHeight()/2)+5); //Placeres i billede -> X og y kordinat er i henhold til image
+        graphics.drawString(attributedText.getIterator(), 2, (size.getFoodObjectHeight()/2)+5); //Placeres i billede -> X og y kordinat er i henhold til image
 
     }
 
