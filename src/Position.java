@@ -7,14 +7,17 @@ public class Position {
     private int minX;
     private int maxY;
     private int minY;
-    private Size size;
-    //maxX og minY
+    Size size;
 
     public Position(int x,int y){
+        size = new Size();
         this.x = x;
         this.y = y;
-        this.maxX = 700; //Width på display
-        this.maxY = 500; //Height på display
+        this.maxX = size.getDisplayWidth();
+        this.maxY = size.getDisplayHeight();
+
+        //this.maxX = 700; //Width på display
+        //this.maxY = 500; //Height på display
         this.minX = 0;
         this.minY = 0;
 
@@ -29,7 +32,7 @@ public class Position {
     }
 
     public void setX(int x) {
-        if (x>= minX && x<=maxX-20){ // Minus 20, da firkanten er 20 Pixels, så den ikke kan komme over kanten, måske hentes fra size
+        if (x>= minX && x<=maxX-size.getGameObjectWidth()){ //-gameObject size, således at firkanten ikke ryger ud fra display
         this.x = x;
         }else{
             System.out.println("Ude for rammen"); //Kontrol til terminal
