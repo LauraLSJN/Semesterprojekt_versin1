@@ -14,8 +14,6 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     private Input input; //Input fra brugeren
     Random random = new Random();
     Size size;
-    Tid ttid;
-
 
     AttributedString attributedText;
     Font font = new Font("Monospaced", Font.BOLD, 15);
