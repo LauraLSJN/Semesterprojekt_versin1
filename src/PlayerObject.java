@@ -5,7 +5,7 @@ public class PlayerObject extends GameObject {
     private Controller controller;
     private int speedX;
     private int oldPosX;
-    Image imgShoppingkurv = Toolkit.getDefaultToolkit().getImage("/Users/laura/Desktop/shoppingKurv3.png");
+    Image imgShoppingkurv = Toolkit.getDefaultToolkit().getImage("\"C:\\Users\\Carov\\Desktop\\SBPNG.png\"");
 
 
 
