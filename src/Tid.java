@@ -13,6 +13,7 @@ public class Tid {
     int minSecond;
     int second;
     int minute;
+
     String ddSecond;
     String ddMinute;
     String ddMinSec;
@@ -69,7 +70,7 @@ public class Tid {
     public Image getSprite() {
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = image.createGraphics();
-        graphics.setColor(Color.darkGray);
+        graphics.setColor(Color.BLACK);
         graphics.fillRect(0, 0, width, height);
         setText(graphics);
         graphics.dispose();

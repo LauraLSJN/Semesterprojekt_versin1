@@ -5,6 +5,8 @@ public class Size {
     private int foodObjectHeight;
     private int displayWidth;
     private int displayHeight;
+    private int playerObjectWidth;
+    private int playerObjectHeight;
 
 
     public Size (){
@@ -12,6 +14,8 @@ public class Size {
         this.foodObjectWidth = 30;
         this.displayWidth = 700;
         this.displayHeight = 500;
+        this.playerObjectWidth = 60;
+        this.playerObjectHeight = 60;
     }
 
 

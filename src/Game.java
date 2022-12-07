@@ -73,13 +73,17 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
 
     //Metode til detection af hvorvidt firkanterne på displayet rammer hinanden
     public void detection() {
+       if (test){
+           test = false;
+       }
+
         for (int x = 1; x < gameObject.size(); x++) {
-            if ((gameObject.get(x).getPosition().getX() >= (gameObject.get(0).getPosition().getX() - 30))
-                    && (gameObject.get(x).getPosition().getX() <= (gameObject.get(0).getPosition().getX() + size.getGameObjectWidth() + 20))
-                    && ((gameObject.get(x).getPosition().getY() + size.getGameObjectHeight()) >= gameObject.get(0).getPosition().getY())
-                    && ((gameObject.get(x).getPosition().getY() + size.getGameObjectHeight()) <= (gameObject.get(0).getPosition().getY() + size.getGameObjectHeight() + 20))
-                    && ((gameObject.get(x).getPosition().getX() + size.getGameObjectWidth()) >= (gameObject.get(0).getPosition().getX() - 35))
-                    && ((gameObject.get(x).getPosition().getX() + size.getGameObjectWidth()) <= (gameObject.get(0).getPosition().getX() + size.getGameObjectWidth() + 30))
+            if ((gameObject.get(x).getPosition().getX() >= (gameObject.get(0).getPosition().getX() - 30)) // food x >= player x - 30
+                    && (gameObject.get(x).getPosition().getX() <= (gameObject.get(0).getPosition().getX() + size.getPlayerObjectWidth() + 20)) //food x <= player x+ size + 20
+                    && ((gameObject.get(x).getPosition().getY() + size.getFoodObjectHeight()) >= gameObject.get(0).getPosition().getY()+5) // food y + size >= player y +5
+                    && ((gameObject.get(x).getPosition().getY() + size.getFoodObjectHeight()) <= (gameObject.get(0).getPosition().getY() + size.getPlayerObjectHeight() + 20)) //food y <= player y + size + 20
+                    && ((gameObject.get(x).getPosition().getX() + size.getFoodObjectWidth()) >= (gameObject.get(0).getPosition().getX() - 35)) //food x + size >= player x -35
+                    && ((gameObject.get(x).getPosition().getX() + size.getFoodObjectWidth()) <= (gameObject.get(0).getPosition().getX() + size.getFoodObjectWidth() + 60)) //food x + size <= player x + size + 60
             ) {
                 //SET
                 shoppingBaskets.get(0).setCollectedFood(gameObject.get(x).getPrice().getValuePrice());
@@ -104,6 +108,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         for (int i = 1; i < gameObject.size(); i++) {
             if (gameObject.get(i).getPosition().getY() >= gameObject.get(0).getPosition().getY()+ size.getPlayerObjectHeight()) { //food y >= player y + player height
                 gameObject.remove(i);
+
                 //System.out.println(gameObject.toString()); //Anvendes til kontrol
             }
 

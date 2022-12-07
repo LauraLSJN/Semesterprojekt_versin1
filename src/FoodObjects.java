@@ -59,10 +59,10 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
     }
 
     public void setColor(){
-        if(getPrice().getValuePrice() >= 0){
-            this.colorBoks = farve.plusFarve;
+        if(getPrice().getValuePrice() >= 0){ //hvis prisen er lig eller mindre end 0
+            this.colorBoks = farve.plusFarve; //grøn farve
         } else{
-            this.colorBoks = farve.minusFarve;
+            this.colorBoks = farve.minusFarve; //rød farve
         }
     }
 
