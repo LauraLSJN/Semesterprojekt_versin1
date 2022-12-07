@@ -5,6 +5,7 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.TimerTask;
 
 public class Display extends JFrame {
 
@@ -43,8 +44,10 @@ public class Display extends JFrame {
            graphics.setColor(Color.black);
            graphics.fillRect(300,300,100,100);
            System.out.println("TRUE");
+
+
        }else{
-           System.out.println("false ");
+           //System.out.println("false ");
        }
 
 

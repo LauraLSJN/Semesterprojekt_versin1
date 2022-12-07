@@ -9,7 +9,8 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
     Font font = new Font("Monospaced", Font.BOLD, 15);
     String textInImage;
     AttributedString attributedText;
-    int speed = 1; //Evt. getter og setter
+
+    int speed; //Evt. getter og setter
     Farve farve;
     private Color colorBoks;
 
@@ -18,8 +19,10 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
         farve = new Farve();
         position = new Position(random.nextInt(size.getDisplayWidth()- size.getFoodObjectWidth()),0 ); //-gameObject size, så de ikke placeres udenfor display
         price.setValuePrice(random.nextInt(price.getMinPrice(),price.getMaxPrice()));
+        //price.setValuePrice(5);
         textInImage = String.valueOf(getPrice().getValuePrice()); //Henter valuePrice
         setColor();
+        this.speed = 1;
     }
 
 
@@ -29,6 +32,7 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
         int oldPos = position.getY();
         //Set metode til at sætte den ny y-koordinat
         position.setY(oldPos+speed);
+        //System.out.println("SPEED: " + speed);
 
         //Print af FoodObjects position
         //System.out.println("Position FoodObjects");
@@ -72,5 +76,9 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
         return "FoodObjects{" +
                 "price=" + price +
                 '}';
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 }

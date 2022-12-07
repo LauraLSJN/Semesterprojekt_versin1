@@ -10,6 +10,8 @@ import java.text.DecimalFormat;
 public class Tid {
 
     Position position;
+
+
     int minSecond;
     int second;
     int minute;
@@ -38,6 +40,7 @@ public class Tid {
         this.minSecond = 0;
         this.second = 0;
         this.minute = 3;
+
     }
 
     public void update() {
@@ -82,6 +85,18 @@ public class Tid {
         attributedText.addAttribute(TextAttribute.FONT, font); //Font
         attributedText.addAttribute(TextAttribute.FOREGROUND, Color.WHITE); //Sættes til foreground + farve = hvid
         graphics.drawString(attributedText.getIterator(), xText, (height/2)+5); //Placeres i billede -> X og y kordinat er i henhold til image
+    }
+
+    public void setMinSecond(int minSecond) {
+        this.minSecond = minSecond;
+    }
+
+    public void setSecond(int second) {
+        this.second = second;
+    }
+
+    public void setMinute(int minute) {
+        this.minute = minute;
     }
 
 
