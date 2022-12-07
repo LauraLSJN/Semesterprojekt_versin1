@@ -17,12 +17,14 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
 
     AttributedString attributedText;
     Font font = new Font("Monospaced", Font.BOLD, 15);
+    Level level;
 
 
     boolean test = false;
 
     public Game() {
         this.test = false;
+        level = new Level();
 
         input = new Input();
         size = new Size();
@@ -63,6 +65,9 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
             if (shoppingBaskets.get(0).nowCollectedFood != shoppingBaskets.get(0).maxValue) {
                 addFoodObjects(); //Tilføjer nyt objekt til arrayliste hvis shoppingBasket ikke er lig maks
             } else {
+                for (int i = 1; i < gameObject.size(); i++) {
+                    gameObject.remove(i); //Fjerne dem der ikke er ramt fra ArrayListe
+                    level.setNextLevel(1);
                 removeAllFoodObjects();
                 tid.get(0).stopTid();
             }
@@ -94,6 +99,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
                 shoppingBaskets.get(0).setCollectedFood(gameObject.get(x).getPrice().getValuePrice());
                 //ADD
                 shoppingBaskets.get(0).addCollectedFood(gameObject.get(x).getPrice().getValuePrice());
+                level.levelLow();
 
                 System.out.println(gameObject.get(x).getPosition().getX());
                 System.out.println(gameObject.toString());
@@ -124,6 +130,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         detection();
         dropFoodObjects();
         tid.forEach(tid -> tid.update());
+        level.detectLevel();
     }
 
     public void render() {

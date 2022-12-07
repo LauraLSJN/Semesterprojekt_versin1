@@ -97,5 +97,17 @@ public class Tid {
 
 
 
+    public void setMinSecond(int minSecond) {
+        this.minSecond = minSecond;
+    }
+
+    public void setSecond(int second) {
+        this.second = second;
+    }
+
+    public void setMinute(int minute) {
+        this.minute = minute;
+    }
+
 
 }
