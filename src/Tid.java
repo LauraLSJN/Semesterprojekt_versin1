@@ -3,7 +3,7 @@ import java.awt.font.TextAttribute;
 import java.awt.image.BufferedImage;
 import java.text.AttributedString;
 import java.text.DecimalFormat;
-import javax.swing.Timer;
+
 
 
 
@@ -13,7 +13,6 @@ public class Tid {
     int minSecond;
     int second;
     int minute;
-    Timer timer;
     String ddSecond;
     String ddMinute;
     String ddMinSec;
@@ -36,12 +35,8 @@ public class Tid {
         position = new Position(size.getDisplayWidth() - width, 0);
         this.textInImage = "03:00:00";
         this.minSecond = 0;
-        this.second = 10;
-        this.minute = 0;
-        //update();
-        //timer.start();
-
-
+        this.second = 0;
+        this.minute = 3;
     }
 
     public void update() {
