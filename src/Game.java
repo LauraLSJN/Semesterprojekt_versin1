@@ -63,12 +63,15 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
             if (shoppingBaskets.get(0).nowCollectedFood != shoppingBaskets.get(0).maxValue) {
                 addFoodObjects(); //Tilføjer nyt objekt til arrayliste hvis shoppingBasket ikke er lig maks
             } else {
-                for (int i = 1; i < gameObject.size(); i++) {
-                    gameObject.remove(i); //Fjerne dem der ikke er ramt fra ArrayListe
-                    tid.get(0).stopTid();
-
-                }
+                removeAllFoodObjects();
+                tid.get(0).stopTid();
             }
+        }
+    }
+
+    public void removeAllFoodObjects(){
+        for (int i = 1; i < gameObject.size(); i++) {
+            gameObject.remove(i); //Fjerne dem der ikke er ramt fra ArrayListe
 
         }
     }

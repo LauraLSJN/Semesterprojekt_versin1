@@ -10,8 +10,8 @@ public class Tid {
     Position position;
 
     int minSecond;
-    int second;
-    int minute= 1;
+    int second=10;
+    int minute;
 
     String ddSecond;
     String ddMinute;
@@ -23,6 +23,7 @@ public class Tid {
     int height = 50;
 
 
+
     //TEKST
     Font font = new Font("Monospaced", Font.BOLD, fontSize);
     String textInImage;
@@ -30,10 +31,13 @@ public class Tid {
     Size size;
 
 
+
+
     public Tid() {
         size = new Size();
         position = new Position(size.getDisplayWidth() - width, 0);
         this.textInImage = "00:00:00";
+
        // this.minSecond = 0;
         //this.second = 0;
         //this.minute = 0;
@@ -45,6 +49,7 @@ public class Tid {
             minSecond = 0;
             minute = 0;
             second = 0;
+
         } else {
             minSecond--;
             if (minSecond == -1) {
