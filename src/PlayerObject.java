@@ -5,8 +5,11 @@ public class PlayerObject extends GameObject {
     private Controller controller;
     private int speedX;
     private int oldPosX;
-    Image imgShoppingkurv = Toolkit.getDefaultToolkit().getImage("/Users/laura/Desktop/shoppingKurv3.png");
-
+    Image imgShoppingkurv = Toolkit.getDefaultToolkit().getImage("/Users/christinewulffeld/Desktop/shoppingKurv3.png");
+    //Anna sti:
+    //Caro sti:
+    //Chris sti:/Users/christinewulffeld/Desktop/shoppingKurv3.png
+    //Laura sti:
 
 
     public PlayerObject(Controller controller) {
