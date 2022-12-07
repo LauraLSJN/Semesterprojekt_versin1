@@ -92,7 +92,6 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
                 shoppingBaskets.get(0).setCollectedFood(gameObject.get(x).getPrice().getValuePrice());
                 //ADD
                 shoppingBaskets.get(0).addCollectedFood(gameObject.get(x).getPrice().getValuePrice());
-                level.levelLow();
 
                 System.out.println(gameObject.get(x).getPosition().getX());
                 System.out.println(gameObject.toString());
