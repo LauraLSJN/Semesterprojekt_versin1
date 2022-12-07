@@ -3,12 +3,14 @@ import java.awt.image.BufferedImage;
 
 public class PlayerObject extends GameObject {
     private Controller controller;
+    //Size size;
 
 
     public PlayerObject(Controller controller) {
         super();
         this.controller = controller;
-        position = new Position(350,400); //Starter på denne position
+        position = new Position(350,465); //Starter på denne position
+        //size = new Size(20,20);
     }
 
     @Override
@@ -28,10 +30,10 @@ public class PlayerObject extends GameObject {
 
     @Override
     public Image getSprite() {
-        BufferedImage image = new BufferedImage(size.getWidth(), size.getHeight(), BufferedImage.TYPE_INT_RGB);
+        BufferedImage image = new BufferedImage(size.getGameObjectWidth(), size.getGameObjectHeight(), BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = image.createGraphics();
         graphics.setColor(Color.RED);
-        graphics.fillRect(0, 0, size.getWidth(), size.getHeight());
+        graphics.fillRect(0, 0, size.getGameObjectWidth(), size.getGameObjectHeight());
         graphics.dispose();
         return image;
     }
