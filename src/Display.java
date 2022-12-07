@@ -11,7 +11,7 @@ public class Display extends JFrame {
     private Canvas canvas;
     Image img = Toolkit.getDefaultToolkit().getImage("Ressourcer/shoppingMarket.jpg"); //Erstat stigen, men din egen sti
     //Anna sti: "/Users/annab/Desktop/shoppingMarket.jpg"
-    //Chris sti:
+    //Chris sti:/Users/christinewulffeld/Desktop/shoppingMarket.jpg
     //Caro sti: "C:\Users\Carov\Desktop\shoppingMarket.jpg"
     //Laura sti: /Users/laura/Desktop/shoppingMarket.jpg
 
