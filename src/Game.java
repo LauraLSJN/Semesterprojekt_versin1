@@ -8,16 +8,13 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     private List<ShoppingBasket> shoppingBaskets;
     private List<Tid> tid;
     private Input input; //Input fra brugeren
-    private int width = 700;
-    private int height = 500;
     Random random = new Random();
     Size size;
 
     public Game() {
         input = new Input();
-        display = new Display(width, height, input);//aendret fra w h Skærmstørrelse 700x500 x: 700, y:500
-        //size = new Size(20,20);
         size = new Size();
+        display = new Display(size.getDisplayWidth(), size.getDisplayHeight(), input);//aendret fra w h Skærmstørrelse 700x500 x: 700, y:500
 
         //Tid
         tid = new ArrayList<>();

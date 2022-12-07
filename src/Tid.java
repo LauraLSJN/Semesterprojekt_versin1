@@ -24,10 +24,12 @@ public class Tid {
     Font font = new Font("Monospaced", Font.BOLD, fontSize);
     String textInImage;
     AttributedString attributedText;
+    Size size;
 
 
     public Tid() {
-        position = new Position(700 - width, 0);
+        size = new Size();
+        position = new Position(size.getDisplayWidth() - width, 0);
         this.textInImage = "03:00:00";
         this.minSecond = 0;
         this.second = 0;

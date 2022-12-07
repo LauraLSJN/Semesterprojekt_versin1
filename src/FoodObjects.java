@@ -9,13 +9,12 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
     Font font = new Font("Monospaced", Font.BOLD, 15);
     String textInImage;
     AttributedString attributedText;
+    int speed = 1; //Evt. getter og setter
 
     //Konstruktør -> Sætter position
     public FoodObjects(){ //herunder bliver værdierne som vi gerne vil have blive sat
-        //Ny instans af Position klasse
-        position = new Position(random.nextInt(680),0); //680, så der ikke placeres uden for display
-        price = new Price();
-        price.setValuePrice(random.nextInt(-10,10));
+        position = new Position(random.nextInt(size.getDisplayWidth()- size.getGameObjectWidth()),0 ); //-gameObject size, så de ikke placeres udenfor display
+        price.setValuePrice(random.nextInt(price.getMinPrice(),price.getMaxPrice()));
         textInImage = String.valueOf(getPrice().getValuePrice()); //Henter valuePrice
     }
 
@@ -25,7 +24,7 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
         //Get metode til at hente y-koordinat
         int oldPos = position.getY();
         //Set metode til at sætte den ny y-koordinat
-        position.setY(oldPos+1);
+        position.setY(oldPos+speed);
 
         //Print af FoodObjects position
         //System.out.println("Position FoodObjects");
@@ -38,7 +37,13 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
     public Image getSprite() {
         BufferedImage image = new BufferedImage(size.getGameObjectWidth(),size.getGameObjectHeight(), BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = image.createGraphics();
-        graphics.setColor(getFarve().randomColor);
+
+        if(getPrice().getValuePrice() >= 0){
+            graphics.setColor(Color.green);
+        } else{
+            graphics.setColor(Color.red);
+        }
+
         graphics.fillRect(0, 0, size.getGameObjectWidth(), size.getGameObjectHeight());
         setText(graphics);
         graphics.dispose();
