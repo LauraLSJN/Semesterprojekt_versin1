@@ -2,6 +2,7 @@ import java.awt.event.KeyEvent;
 
 public class Player implements Controller{
 
+
     private Input input;
 
     public Player(Input input){
