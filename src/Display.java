@@ -44,7 +44,7 @@ public class Display extends JFrame {
            graphics.fillRect(300,300,100,100);
            System.out.println("TRUE");
        }else{
-           System.out.println("false ");
+          // System.out.println("false ");
        }
 
 

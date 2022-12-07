@@ -5,14 +5,13 @@ import java.text.AttributedString;
 import java.text.DecimalFormat;
 
 
-
-
 public class Tid {
 
     Position position;
+
     int minSecond;
     int second;
-    int minute;
+    int minute= 1;
 
     String ddSecond;
     String ddMinute;
@@ -34,15 +33,15 @@ public class Tid {
     public Tid() {
         size = new Size();
         position = new Position(size.getDisplayWidth() - width, 0);
-        this.textInImage = "03:00:00";
-        this.minSecond = 0;
-        this.second = 0;
-        this.minute = 3;
+        this.textInImage = "00:00:00";
+       // this.minSecond = 0;
+        //this.second = 0;
+        //this.minute = 0;
     }
 
     public void update() {
 
-        if(minSecond == 0 && minute == 0 && second == 0) {
+        if (minSecond == 0 && minute == 0 && second == 0) {
             minSecond = 0;
             minute = 0;
             second = 0;
@@ -64,7 +63,7 @@ public class Tid {
 
         this.textInImage = (ddMinute + ":" + ddSecond + ":" + ddMinSec);
 
-            }
+    }
 
 
     public Image getSprite() {
@@ -81,8 +80,17 @@ public class Tid {
         attributedText = new AttributedString(textInImage);
         attributedText.addAttribute(TextAttribute.FONT, font); //Font
         attributedText.addAttribute(TextAttribute.FOREGROUND, Color.WHITE); //Sættes til foreground + farve = hvid
-        graphics.drawString(attributedText.getIterator(), xText, (height/2)+5); //Placeres i billede -> X og y kordinat er i henhold til image
+        graphics.drawString(attributedText.getIterator(), xText, (height / 2) + 5); //Placeres i billede -> X og y kordinat er i henhold til image
     }
+
+    public void stopTid() {
+        this.minute = 0;
+        this.second = 0;
+        this.minSecond = 0;
+    }
+
+
+
 
 
 }

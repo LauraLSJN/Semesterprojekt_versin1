@@ -17,7 +17,8 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
     public FoodObjects(){ //herunder bliver værdierne som vi gerne vil have blive sat
         farve = new Farve();
         position = new Position(random.nextInt(size.getDisplayWidth()- size.getFoodObjectWidth()),0 ); //-gameObject size, så de ikke placeres udenfor display
-        price.setValuePrice(random.nextInt(price.getMinPrice(),price.getMaxPrice()));
+        //price.setValuePrice(random.nextInt(price.getMinPrice(),price.getMaxPrice()));
+        price.setValuePrice(5);
         textInImage = String.valueOf(getPrice().getValuePrice()); //Henter valuePrice
         setColor();
     }

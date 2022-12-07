@@ -14,6 +14,9 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     private Input input; //Input fra brugeren
     Random random = new Random();
     Size size;
+    Tid ttid;
+
+
     AttributedString attributedText;
     Font font = new Font("Monospaced", Font.BOLD, 15);
 
@@ -64,6 +67,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
             } else {
                 for (int i = 1; i < gameObject.size(); i++) {
                     gameObject.remove(i); //Fjerne dem der ikke er ramt fra ArrayListe
+                    tid.get(0).stopTid();
 
                 }
             }
@@ -108,8 +112,6 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         for (int i = 1; i < gameObject.size(); i++) {
             if (gameObject.get(i).getPosition().getY() >= gameObject.get(0).getPosition().getY()+ size.getPlayerObjectHeight()) { //food y >= player y + player height
                 gameObject.remove(i);
-
-                //System.out.println(gameObject.toString()); //Anvendes til kontrol
             }
 
         }
