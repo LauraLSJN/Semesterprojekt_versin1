@@ -201,7 +201,9 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     }
     
     public void tekstBoks(Graphics g){
-        //Center -> GetAscent og getDescent
+        //Center -> GetAscent og getDescent -> Som tage
+        //String tekst -> hvor vi kan bruge ovenstående, som tager størrelsen af string ift. font -> Derefter kan vi centrerer det
+        //https://www.tabnine.com/code/java/methods/java.awt.Graphics/setFont
 
         int tekstBoksWidth = size.getDisplayWidth()-200; // 500
         int tekstBoksHeight = size.getDisplayHeight()-400; //100
