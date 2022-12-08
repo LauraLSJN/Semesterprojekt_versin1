@@ -43,7 +43,7 @@ public class Display extends JFrame {
        if (game.isTest()){
            graphics.setColor(Color.black);
            graphics.fillRect(300,300,100,100);
-           System.out.println("TRUE");
+           //System.out.println("TRUE");
 
 
        }else{

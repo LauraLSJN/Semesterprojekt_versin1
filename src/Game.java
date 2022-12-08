@@ -82,6 +82,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
                 //addFoodObjects(); //Tilføjer nyt objekt til arrayliste hvis shoppingBasket ikke er lig maks
                 this.stopDrop = true;
                 removeFoodObjects();
+                setTest(true);
             }
 
             if(tid.get(0).getMinSecond() == 0 && tid.get(0).getSecond() == 0 && tid.get(0).getMinute() == 0){
@@ -126,7 +127,6 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
 
                 gameObject.remove(x); //Fjerner objektet -> Der bliver ramt
                 System.out.println(getGameObject()); //Print til konsol -> Se om objektet er fjernet fra arraylist
-               setTest(true);
                // this.test = true;
 
             }
@@ -189,7 +189,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     public void setText(Graphics2D graphics, String text, int x, int y) {
         attributedText = new AttributedString(text);
         attributedText.addAttribute(TextAttribute.FONT, font); //Font
-        attributedText.addAttribute(TextAttribute.FOREGROUND, Color.BLACK); //Sættes til foreground + farve = hvid
+        attributedText.addAttribute(TextAttribute.FOREGROUND, Color.RED); //Sættes til foreground + farve = hvid
         graphics.drawString(attributedText.getIterator(), x, y); //Placeres i billede -> X og y kordinat er i henhold til image
     }
 
