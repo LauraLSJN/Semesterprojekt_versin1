@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.awt.font.TextAttribute;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 
 public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vores spil. Det vigtigste her er de to lister
     private Display display;
