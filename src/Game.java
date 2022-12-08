@@ -201,8 +201,9 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     }
     
     public void tekstBoks(Graphics g){
+        //Center -> GetAscent og getDescent
 
-        int tekstBoksWidth = size.getDisplayWidth()-200;
+        int tekstBoksWidth = size.getDisplayWidth()-200; // 500
         int tekstBoksHeight = size.getDisplayHeight()-400; //100
         int tekstBoksX = 100;
         int tekstBoksY = (size.getDisplayHeight()/2)- tekstBoksHeight-50;
