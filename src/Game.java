@@ -20,11 +20,16 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     Font font = new Font("Monospaced", Font.BOLD, 15);
     Level level;
 
+    boolean won;
+    boolean lost;
 
-    boolean test = false;
+//boolean test = false;
 
     public Game() {
-        this.test = false;
+        this.won = false;
+        this.lost = false;
+
+        //this.test = false;
         this.stopDrop = false;
         level = new Level();
 
@@ -88,6 +93,8 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
             if(tid.get(0).getMinSecond() == 0 && tid.get(0).getSecond() == 0 && tid.get(0).getMinute() == 0){
                 this.stopDrop = true;
                 removeFoodObjects();
+                setLost(true);
+                //setTest(true);
             }
 
         }
@@ -104,10 +111,6 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
 
     //Metode til detection af hvorvidt firkanterne på displayet rammer hinanden
     public void detection() {
-       if (test){
-           test = false;
-       }
-
         for (int x = 1; x < gameObject.size(); x++) {
             if ((gameObject.get(x).getPosition().getX() >= (gameObject.get(0).getPosition().getX() - 30)) // food x >= player x - 30
                     && (gameObject.get(x).getPosition().getX() <= (gameObject.get(0).getPosition().getX() + size.getPlayerObjectWidth() + 20)) //food x <= player x+ size + 20
@@ -178,8 +181,8 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         BufferedImage image = new BufferedImage(100, 50, BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = image.createGraphics();
         graphics.setColor(Color.BLACK);
-        graphics.fillRect(100, 100, 100, 100);
-        setText(graphics, "TEST", 100, 100);
+        graphics.fillRect(300, 300, 100, 100);
+        setText(graphics, "TEST", 0, 0);
         graphics.dispose();
         return image;
     }
@@ -193,12 +196,29 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         graphics.drawString(attributedText.getIterator(), x, y); //Placeres i billede -> X og y kordinat er i henhold til image
     }
 
-    public boolean isTest() {
+   /* public boolean isTest() {
         return test;
+    }*/
+
+   /* public void setTest(boolean test) {
+        this.test = test;
+    }*/
+
+
+    public boolean isWon() {
+        return won;
     }
 
-    public void setTest(boolean test) {
-        this.test = test;
+    public void setWon(boolean won) {
+        this.won = won;
+    }
+
+    public boolean isLost() {
+        return lost;
+    }
+
+    public void setLost(boolean lost) {
+        this.lost = lost;
     }
 
 

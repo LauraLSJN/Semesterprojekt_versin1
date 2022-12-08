@@ -38,9 +38,16 @@ public class Display extends JFrame {
         BufferStrategy bufferStartegy = canvas.getBufferStrategy();
         Graphics graphics = bufferStartegy.getDrawGraphics();
 
+
+
         graphics.drawImage(img, 0, 0,700,500,null); //"Tegner" baggrunden som billedet
         //graphics.fillRect(0, 0, canvas.getWidth(),canvas.getHeight()); //Kan anvendes hvis billede ikke virker
-       if (game.isTest()){
+        game.tekstBoks(graphics);
+
+
+       // game.tekstBoks();
+      /* if (game.isTest()){
+           //game.getSprite();
            graphics.setColor(Color.black);
            graphics.fillRect(300,300,100,100);
            //System.out.println("TRUE");
