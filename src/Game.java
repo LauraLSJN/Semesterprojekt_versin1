@@ -206,8 +206,8 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         int tekstBoksHeight = size.getDisplayHeight()-400; //100
         int tekstBoksX = 100;
         int tekstBoksY = (size.getDisplayHeight()/2)- tekstBoksHeight-50;
+        Font font = new Font("Serif", Font.BOLD, 50);
 
-            Font font = new Font("Serif", Font.BOLD, 50);
         if (isWon()){
             g.setFont(font);
             g.setColor(Color.LIGHT_GRAY);
