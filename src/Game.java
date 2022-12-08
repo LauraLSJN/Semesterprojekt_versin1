@@ -90,7 +90,8 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
                 //addFoodObjects(); //Tilføjer nyt objekt til arrayliste hvis shoppingBasket ikke er lig maks
                 this.stopDrop = true;
                 removeFoodObjects();
-                setTest(true);
+                setWon(true);
+                //setTest(true);
             }
 
             if(tid.get(0).getMinSecond() == 0 && tid.get(0).getSecond() == 0 && tid.get(0).getMinute() == 0){
@@ -198,6 +199,37 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         attributedText.addAttribute(TextAttribute.FOREGROUND, Color.RED); //Sættes til foreground + farve = hvid
         graphics.drawString(attributedText.getIterator(), x, y); //Placeres i billede -> X og y kordinat er i henhold til image
     }
+    
+    public void tekstBoks(Graphics g){
+
+        int tekstBoksWidth = size.getDisplayWidth()-200;
+        int tekstBoksHeight = size.getDisplayHeight()-400; //100
+        int tekstBoksX = 100;
+        int tekstBoksY = (size.getDisplayHeight()/2)- tekstBoksHeight-50;
+
+            Font font = new Font("Serif", Font.BOLD, 50);
+        if (isWon()){
+            g.setFont(font);
+            g.setColor(Color.LIGHT_GRAY);
+            g.fillRect(tekstBoksX,tekstBoksY,tekstBoksWidth,tekstBoksHeight);
+            g.setColor(Color.GREEN);
+            g.drawString("DU HAR VUNDET",tekstBoksX+50,tekstBoksY+70);
+
+        }
+        else if (isLost()){
+            g.setFont(font);
+            g.setColor(Color.LIGHT_GRAY);
+            g.fillRect(tekstBoksX,tekstBoksY,tekstBoksWidth,tekstBoksHeight);
+            g.setColor(Color.RED);
+            g.drawString("DU HAR TABT",tekstBoksX+50,tekstBoksY+70);
+            //System.out.println("false ");
+        }
+
+
+
+    }
+
+
 
    /* public boolean isTest() {
         return test;
