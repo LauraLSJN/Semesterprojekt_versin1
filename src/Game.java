@@ -224,20 +224,10 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
             g.drawString("DU HAR TABT",tekstBoksX+50,tekstBoksY+70);
             //System.out.println("false ");
         }
-
-
-
     }
 
 
 
-   /* public boolean isTest() {
-        return test;
-    }*/
-
-   /* public void setTest(boolean test) {
-        this.test = test;
-    }*/
 
 
     public boolean isWon() {
