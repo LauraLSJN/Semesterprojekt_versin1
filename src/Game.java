@@ -14,6 +14,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     private Input input; //Input fra brugeren
     Random random = new Random();
     Size size;
+    private boolean stopDrop;
 
     AttributedString attributedText;
     Font font = new Font("Monospaced", Font.BOLD, 15);
@@ -24,6 +25,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
 
     public Game() {
         this.test = false;
+        this.stopDrop = false;
         level = new Level();
 
         input = new Input();
@@ -61,19 +63,35 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     //Dropper foodoOjects
     public void dropFoodObjects() {
         int randomTal = random.nextInt(2000);
-        if (randomTal <= 25) {
-            if (shoppingBaskets.get(0).nowCollectedFood != shoppingBaskets.get(0).maxValue) {
-                addFoodObjects(); //Tilføjer nyt objekt til arrayliste hvis shoppingBasket ikke er lig maks
-            } else {
-                for (int i = 1; i < gameObject.size(); i++) {
-                    gameObject.remove(i); //Fjerne dem der ikke er ramt fra ArrayListe
-                    level.setNextLevel(1);
-                    // removeAllFoodObjects();
-                    tid.get(0).stopTid();
-                }
-            }
+        if(this.stopDrop != true && randomTal <= 25) {
+                addFoodObjects();
         }
     }
+
+    public void removeFoodObjects(){
+            for (int i = 1; i < gameObject.size(); i++) {
+                gameObject.remove(i); //Fjerne dem der ikke er ramt fra ArrayListe
+                level.setNextLevel(1);
+                // removeAllFoodObjects();
+                tid.get(0).stopTid();
+            }
+        }
+
+        public void checkStop(){
+            if (shoppingBaskets.get(0).nowCollectedFood == shoppingBaskets.get(0).maxValue) {
+                //addFoodObjects(); //Tilføjer nyt objekt til arrayliste hvis shoppingBasket ikke er lig maks
+                this.stopDrop = true;
+                removeFoodObjects();
+            }
+
+            if(tid.get(0).getMinSecond() == 0 && tid.get(0).getSecond() == 0 && tid.get(0).getMinute() == 0){
+                this.stopDrop = true;
+                removeFoodObjects();
+            }
+
+        }
+
+
 
         /*
         //vi kunne lave metode her i stedet for else.
@@ -129,8 +147,14 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         gameObject.forEach(gameObject -> gameObject.update());
         detectionOutOfDisplay();
         detection();
+        checkStop();
         dropFoodObjects();
-        tid.forEach(tid -> tid.update());
+        //tid.get(0).update();
+
+
+        tid.forEach(tid -> tid.update()); //Find retur værdi
+
+
         level.detectLevel();
     }
 
@@ -176,6 +200,12 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     public void setTest(boolean test) {
         this.test = test;
     }
+
+
+//Liste/Dictionary -> i Game klasse -> Det første i listen (indeks 0) -> Første settings, som skal gælde for første level
+    //Indeks 1 -> Næste level med de værdier som skal sættes
+    //Game klasse -> Variabel currentLevel -> Når man taber, level op, og når man vinder level op
+    //
 
 
 }

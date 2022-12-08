@@ -13,6 +13,7 @@ public class Tid {
     int second=10;
     int minute;
 
+
     String ddSecond;
     String ddMinute;
     String ddMinSec;
@@ -44,6 +45,7 @@ public class Tid {
     }
 
     public void update() {
+
 
         if (minSecond == 0 && minute == 0 && second == 0) {
             minSecond = 0;
@@ -107,6 +109,18 @@ public class Tid {
 
     public void setMinute(int minute) {
         this.minute = minute;
+    }
+
+    public int getMinSecond() {
+        return minSecond;
+    }
+
+    public int getSecond() {
+        return second;
+    }
+
+    public int getMinute() {
+        return minute;
     }
 
 

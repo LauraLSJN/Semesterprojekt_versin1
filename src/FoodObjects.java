@@ -15,6 +15,7 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
     private Color colorBoks;
 
     //Konstruktør -> Sætter position
+    //Indsæt currentSpeed, som parameter
     public FoodObjects(){ //herunder bliver værdierne som vi gerne vil have blive sat
         farve = new Farve();
         position = new Position(random.nextInt(size.getDisplayWidth()- size.getFoodObjectWidth()),0 ); //-gameObject size, så de ikke placeres udenfor display
@@ -23,6 +24,7 @@ public class FoodObjects extends GameObject { //globale variabler som vi bruger
         textInImage = String.valueOf(getPrice().getValuePrice()); //Henter valuePrice
         setColor();
         this.speed = 1;
+        //Level -> int currentSpeed -> Fra level liste
     }
 
 

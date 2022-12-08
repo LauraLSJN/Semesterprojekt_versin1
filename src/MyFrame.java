@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 public class MyFrame extends JFrame implements ActionListener {
     JButton button;
     JLabel label;
+    public boolean isPressed = false;
 
     MyFrame(){
         label = new JLabel();
@@ -33,6 +34,7 @@ public class MyFrame extends JFrame implements ActionListener {
         if(e.getSource() == button){
             System.out.println("virker");
             label.setVisible(true);
+            isPressed = true;
 
         }
     }

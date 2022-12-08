@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.TimerTask;
 
 public class Display extends JFrame {
-
+    MyFrame myFrame;
     private Canvas canvas;
     Image img = Toolkit.getDefaultToolkit().getImage("Ressourcer/shoppingMarket.jpg"); //Erstat stigen, men din egen sti
     //Anna sti: "/Users/annab/Desktop/shoppingMarket.jpg"
@@ -52,7 +52,6 @@ public class Display extends JFrame {
 
 
 
-
         //Henter gameObjects (FoodObjcts & PlayerObjects) og tegner det
         //Anvender Lambda Expression
         game.getGameObject().forEach(gameObject -> graphics.drawImage( //gameobject vi har foodobjekter og player i
@@ -79,6 +78,12 @@ public class Display extends JFrame {
 
         graphics.dispose();
         bufferStartegy.show();
+
+    }
+
+    public void menu(Game game){
+        game = new Game();
+
 
     }
 
