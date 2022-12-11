@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.TimerTask;
 
 public class Display extends JFrame {
-    MyFrame myFrame;
     private Canvas canvas;
     Image img = Toolkit.getDefaultToolkit().getImage("Ressourcer/shoppingMarket.jpg"); //Erstat stigen, men din egen sti
     //Anna sti: "/Users/annab/Desktop/shoppingMarket.jpg"
@@ -18,15 +17,20 @@ public class Display extends JFrame {
 
 
     public Display(int width, int height, Input input){
+
+        System.out.println("Display");
         setTitle("MyFoodSolver");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
         canvas = new Canvas();
         canvas.setPreferredSize(new Dimension(width, height));
+
         canvas.setFocusable(false);
         add(canvas);
         addKeyListener(input);
         pack();
+
+
 
         canvas.createBufferStrategy(3);
 
@@ -44,22 +48,10 @@ public class Display extends JFrame {
         //graphics.fillRect(0, 0, canvas.getWidth(),canvas.getHeight()); //Kan anvendes hvis billede ikke virker
         game.tekstBoks(graphics);
 
-
-       // game.tekstBoks();
-      /* if (game.isTest()){
-           //game.getSprite();
-           graphics.setColor(Color.black);
-           graphics.fillRect(300,300,100,100);
-           //System.out.println("TRUE");
+        System.out.println("Her printes spillet");
 
 
-       }else{
-           //System.out.println("false ");
-       }*/
-
-
-
-        //Henter gameObjects (FoodObjcts & PlayerObjects) og tegner det
+            //Henter gameObjects (FoodObjcts & PlayerObjects) og tegner det
         //Anvender Lambda Expression
         game.getGameObject().forEach(gameObject -> graphics.drawImage( //gameobject vi har foodobjekter og player i
                 gameObject.getSprite(),
@@ -83,17 +75,10 @@ public class Display extends JFrame {
         ));
 
 
+
         graphics.dispose();
         bufferStartegy.show();
 
     }
-
-    public void menu(Game game){
-        game = new Game();
-
-
-    }
-
-
 
 }

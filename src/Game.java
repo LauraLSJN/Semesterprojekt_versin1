@@ -1,12 +1,13 @@
+import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.text.AttributedString;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.awt.font.TextAttribute;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.Timer;
 
 
 public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vores spil. Det vigtigste her er de to lister
@@ -15,6 +16,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     private List<ShoppingBasket> shoppingBaskets;
     private List<Tid> tid;
     private Input input; //Input fra brugeren
+    static Timer timer;
     Random random = new Random();
     Size size;
     private boolean stopDrop;
@@ -29,6 +31,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
 //boolean test = false;
 
     public Game() {
+        System.out.println("game");
         this.won = false;
         this.lost = false;
 
@@ -47,7 +50,8 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         //Shoppingkurven
         shoppingBaskets = new ArrayList<>();
         shoppingBaskets.add(new ShoppingBasket());
-        System.out.println("Test");
+        //shoppingBaskets.add(new ShoppingBasket(5)); generisk shopping basket
+
 
         //Food og Player
         gameObject = new ArrayList<>();
@@ -71,37 +75,37 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     //Dropper foodoOjects
     public void dropFoodObjects() {
         int randomTal = random.nextInt(2000);
-        if(this.stopDrop != true && randomTal <= 25) {
-                addFoodObjects();
+        if (this.stopDrop != true && randomTal <= 25) {
+            addFoodObjects();
         }
     }
 
-    public void removeFoodObjects(){
-            for (int i = 1; i < gameObject.size(); i++) {
-                gameObject.remove(i); //Fjerne dem der ikke er ramt fra ArrayListe
-                level.setNextLevel(1);
-                // removeAllFoodObjects();
-                tid.get(0).stopTid();
-            }
+    public void removeFoodObjects() {
+        for (int i = 1; i < gameObject.size(); i++) {
+            gameObject.remove(i); //Fjerne dem der ikke er ramt fra ArrayListe
+            level.setNextLevel(1);
+            // removeAllFoodObjects();
+            tid.get(0).stopTid();
+        }
+    }
+
+    public void checkStop() {
+        if (shoppingBaskets.get(0).nowCollectedFood == shoppingBaskets.get(0).maxValue) {
+            //addFoodObjects(); //Tilføjer nyt objekt til arrayliste hvis shoppingBasket ikke er lig maks
+            this.stopDrop = true;
+            removeFoodObjects();
+            setWon(true);
+            //setTest(true);
         }
 
-        public void checkStop(){
-            if (shoppingBaskets.get(0).nowCollectedFood == shoppingBaskets.get(0).maxValue) {
-                //addFoodObjects(); //Tilføjer nyt objekt til arrayliste hvis shoppingBasket ikke er lig maks
-                this.stopDrop = true;
-                removeFoodObjects();
-                setWon(true);
-                //setTest(true);
-            }
-
-            if(tid.get(0).getMinSecond() == 0 && tid.get(0).getSecond() == 0 && tid.get(0).getMinute() == 0){
-                this.stopDrop = true;
-                removeFoodObjects();
-                setLost(true);
-                //setTest(true);
-            }
-
+        if (tid.get(0).getMinSecond() == 0 && tid.get(0).getSecond() == 0 && tid.get(0).getMinute() == 0) {
+            this.stopDrop = true;
+            removeFoodObjects();
+            setLost(true);
+            //setTest(true);
         }
+
+    }
 
 
 
@@ -118,7 +122,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         for (int x = 1; x < gameObject.size(); x++) {
             if ((gameObject.get(x).getPosition().getX() >= (gameObject.get(0).getPosition().getX() - 30)) // food x >= player x - 30
                     && (gameObject.get(x).getPosition().getX() <= (gameObject.get(0).getPosition().getX() + size.getPlayerObjectWidth() + 20)) //food x <= player x+ size + 20
-                    && ((gameObject.get(x).getPosition().getY() + size.getFoodObjectHeight()) >= gameObject.get(0).getPosition().getY()+5) // food y + size >= player y +5
+                    && ((gameObject.get(x).getPosition().getY() + size.getFoodObjectHeight()) >= gameObject.get(0).getPosition().getY() + 5) // food y + size >= player y +5
                     && ((gameObject.get(x).getPosition().getY() + size.getFoodObjectHeight()) <= (gameObject.get(0).getPosition().getY() + size.getPlayerObjectHeight() + 20)) //food y <= player y + size + 20
                     && ((gameObject.get(x).getPosition().getX() + size.getFoodObjectWidth()) >= (gameObject.get(0).getPosition().getX() - 35)) //food x + size >= player x -35
                     && ((gameObject.get(x).getPosition().getX() + size.getFoodObjectWidth()) <= (gameObject.get(0).getPosition().getX() + size.getFoodObjectWidth() + 60)) //food x + size <= player x + size + 60
@@ -134,7 +138,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
 
                 gameObject.remove(x); //Fjerner objektet -> Der bliver ramt
                 System.out.println(getGameObject()); //Print til konsol -> Se om objektet er fjernet fra arraylist
-               // this.test = true;
+                // this.test = true;
 
             }
 
@@ -143,7 +147,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
 
     public void detectionOutOfDisplay() {
         for (int i = 1; i < gameObject.size(); i++) {
-            if (gameObject.get(i).getPosition().getY() >= gameObject.get(0).getPosition().getY()+ size.getPlayerObjectHeight()) { //food y >= player y + player height
+            if (gameObject.get(i).getPosition().getY() >= gameObject.get(0).getPosition().getY() + size.getPlayerObjectHeight()) { //food y >= player y + player height
                 gameObject.remove(i);
             }
 
@@ -166,6 +170,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     }
 
     public void render() {
+        System.out.println("game render");
         display.render(this);
     }
 
@@ -181,6 +186,7 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         return tid;
     }
 
+
     public Image getSprite() {
         BufferedImage image = new BufferedImage(100, 50, BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = image.createGraphics();
@@ -190,6 +196,10 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
         graphics.dispose();
         return image;
     }
+
+
+
+
 
     //Price i firkanten
     //https://www.baeldung.com/java-add-text-to-image
@@ -230,9 +240,6 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     }
 
 
-
-
-
     public boolean isWon() {
         return won;
     }
@@ -250,10 +257,15 @@ public class Game { //Game klassen - sætter de ting ind som vi skal bruge i vor
     }
 
 
+}
+
+
+
+
 //Liste/Dictionary -> i Game klasse -> Det første i listen (indeks 0) -> Første settings, som skal gælde for første level
     //Indeks 1 -> Næste level med de værdier som skal sættes
     //Game klasse -> Variabel currentLevel -> Når man taber, level op, og når man vinder level op
     //
 
 
-}
+

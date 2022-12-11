@@ -24,7 +24,9 @@ public class ShoppingBasket {
     int nowCollectedFood;
 
     public ShoppingBasket() {
+       // public ShoppingBasket(int maxVal) { generisk
         position = new Position(0, 0);
+        //this.maxValue = maxVal; generisk
         this.maxValue = 5;
         maxValueString = String.valueOf(maxValue);
         this.collectedFood = 0;
