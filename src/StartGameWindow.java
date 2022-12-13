@@ -17,11 +17,11 @@ public class StartGameWindow {
     //Laver Start knap
     public void StartBoks() {
         JFrame window = new JFrame();//tegner vinduet
-        window.setTitle("SMACK IT");//titel pa vinduet
+        window.setTitle("MyFoodSolver");//titel pa vinduet
         GamePanel gamePanel = new GamePanel();//tegner GamePanel noget som man kan bruge men det gor vi ikke, kan dog ikke slettes fordi saa virker actionlistener ikke
         window.add(gamePanel);//tilfojer det gamePanel vi ikke bruger
 
-        JButton startBtn = new JButton("Klik her for at starte SMACK IT!!");//Det som skla staa i vores startknap
+        JButton startBtn = new JButton("Klik her for at starte My Food Solver!!");//Det som skla staa i vores startknap
         startBtn.setFont(new Font("Comic Sans MS", Font.BOLD, 32));//Fonten paa teksten
         startBtn.setForeground(Color.GREEN);//Farve paa tekst
         startBtn.setPreferredSize(new Dimension(600, 500));//Storrelsen paa knappen
