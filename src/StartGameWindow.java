@@ -23,13 +23,13 @@ public class StartGameWindow {
 
         JButton startBtn = new JButton("Klik her for at starte SMACK IT!!");//Det som skla staa i vores startknap
         startBtn.setFont(new Font("Comic Sans MS", Font.BOLD, 32));//Fonten paa teksten
-        startBtn.setForeground(Color.MAGENTA);//Farve paa tekst
-        startBtn.setPreferredSize(new Dimension(600, 80));//Storrelsen paa knappen
-        startBtn.setBackground(Color.green);//Farve paa knappen
+        startBtn.setForeground(Color.GREEN);//Farve paa tekst
+        startBtn.setPreferredSize(new Dimension(600, 500));//Storrelsen paa knappen
+       // startBtn.setBackground(Color.green);//Farve paa knappen
         startBtn.addActionListener(e -> gamePanel.start());//Actionlistener naar knappen trykkes skal spillet starte --> void start
         window.add(startBtn, BorderLayout.PAGE_START);//tegner vores knap med alt det forrige indhold som str, farve og font
 
-        window.setPreferredSize(new Dimension(700, 150));//vinduet str udenom knappen
+        window.setPreferredSize(new Dimension(700, 500));//vinduet str udenom knappen
         window.pack();//tegner alt indhold
         window.setLocationRelativeTo(null);//Placerer vinduet
         window.setVisible(true);//gor vinduet synlig
